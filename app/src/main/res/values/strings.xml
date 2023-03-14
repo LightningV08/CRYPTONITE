@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name" translatable="false">CRYPTONITE</string>
+    <string name="encrypt">Encrypt</string>
+    <string name="decrypt">Decrypt</string>
+    <string name="get_hash">Hash Algorithms</string>
+    <string name="steganography">Steganography</string>
+    <string name="digital_signature">Digital Signature</string>
+    <string name="aes" translatable="false">AES</string>
+    <string name="des" translatable="false">DES</string>
+    <string name="rsa" translatable="false">RSA</string>
+    <string name="blowfish" translatable="false">Blowfish</string>
+    <string name="twofish" translatable="false">Twofish</string>
+    <string name="des3" translatable="false">3DES</string>
+    <string name="ГОСТ_28147_89" translatable="false">ГОСТ-28147-89</string>
+    <string name="rc4" translatable="false">RC4</string>
+    <string name="choose_file_to_encrypt">Choose file to encrypt</string>
+    <string name="choose_file">Choose file</string>
+    <string name="choose_aes_key_size">Choose AES key size</string>
+    <string name="aes_128" translatable="false">AES-128</string>
+    <string name="aes_192" translatable="false">AES-192</string>
+    <string name="aes_256" translatable="false">AES-256</string>
+    <string name="choose_key_generation_mode">Choose key generation mode</string>
+    <string name="enter_pwd">Enter password (leave blank for random key)</string>
+    <string name="confirm_pwd">Confirm password</string>
+    <string name="choose_hash">Choose hash algorithm</string>
+    <string name="choose_algorithm">Choose Algorithm</string>
+    <string name="choose_hash_algorithm">Choose Hash Algorithm</string>
+    <string name="sha512" translatable="false">SHA512</string>
+    <string name="sha256" translatable="false">SHA256</string>
+    <string name="sha1" translatable="false">SHA1</string>
+    <string name="md5" translatable="false">MD5</string>
+    <string name="whirlpool" translatable="false">Whirlpool</string>
+    <string name="ripemd160" translatable="false">RIPEMD160</string>
+    <string name="keccak512" translatable="false">Keccak512</string>
+    <string name="keccak384" translatable="false">Keccak384</string>
+    <string name="keccak256" translatable="false">Keccak256</string>
+    <string name="keccak224" translatable="false">Keccak224</string>
+    <string name="blake512" translatable="false">Blake512</string>
+    <string name="blake384" translatable="false">Blake384</string>
+    <string name="blake256" translatable="false">Blake256</string>
+    <string name="blake224" translatable="false">Blake224</string>
+    <string name="blake160" translatable="false">Blake160</string>
+    <string name="blake128" translatable="false">Blake128</string>
+    <string name="sha384" translatable="false">SHA384</string>
+    <string name="sha224" translatable="false">SHA224</string>
+    <string name="gost3411" translatable="false">ГОСТ-34.11</string>
+    <string name="choose_file_to_decrypt">Choose file to decrypt</string>
+    <string name="type_text_to_hash">Type text to hash</string>
+    <string name="result">Result</string>
+    <string name="hash">Hash</string>
+    <string name="request_permisson">Request permisson</string>
+    <string name="permission_not_granted">Permission not granted</string>
+    <string name="hash_of_file">Hash of a file</string>
+    <string name="hash_user_input">Hash user input</string>
+</resources>

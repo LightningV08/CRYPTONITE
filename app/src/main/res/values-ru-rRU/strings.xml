@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="encrypt">Шифровать</string>
+    <string name="decrypt">Дешифровать</string>
+    <string name="get_hash">Хеширование</string>
+    <string name="steganography">Стеганография</string>
+    <string name="digital_signature">Цифровые Подписи</string>
+    <string name="choose_file">Выбрать файл</string>
+    <string name="choose_file_to_encrypt">Выберите файл для шифрования</string>
+    <string name="choose_aes_key_size">Выберите размер ключа AES</string>
+    <string name="choose_key_generation_mode">Выберите вариант генерации ключа</string>
+    <string name="enter_pwd">Введите пароль (оставьте пустым для случайного ключа)</string>
+    <string name="confirm_pwd">Подтвердите пароль</string>
+    <string name="choose_hash">Выберите алгоритм хеширования</string>
+    <string name="choose_algorithm">Выберите Алгоритм</string>
+    <string name="choose_hash_algorithm">Выберите Алгоритм Хеширования</string>
+    <string name="choose_file_to_decrypt">Выберите файл для дешифрования</string>
+    <string name="type_text_to_hash">Ввведите текст</string>
+    <string name="result">Результат</string>
+    <string name="hash">Хешировать</string>
+    <string name="request_permisson">Запросить разрешение</string>
+    <string name="permission_not_granted">Разрешение не предоставле</string>
+    <string name="hash_of_file">Хеш файла</string>
+    <string name="hash_user_input">Хеш ввода</string>
+</resources>
