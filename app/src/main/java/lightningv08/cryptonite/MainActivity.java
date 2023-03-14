@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (prefs.getBoolean("firstrun", true)) {
+        if (prefs.getBoolean("firstrun", true) || !prefs.getBoolean("granted", false)) {
             Intent intent = new Intent(this, PermissionActivity.class);
             startActivity(intent);
             prefs.edit().putBoolean("firstrun", false).apply();

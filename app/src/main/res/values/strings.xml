@@ -52,4 +52,5 @@
     <string name="permission_not_granted">Permission not granted</string>
     <string name="hash_of_file">Hash of a file</string>
     <string name="hash_user_input">Hash user input</string>
+    <string name="permission_granted">Permission granted</string>
 </resources>

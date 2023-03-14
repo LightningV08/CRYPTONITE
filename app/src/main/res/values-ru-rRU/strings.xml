@@ -19,7 +19,8 @@
     <string name="result">Результат</string>
     <string name="hash">Хешировать</string>
     <string name="request_permisson">Запросить разрешение</string>
-    <string name="permission_not_granted">Разрешение не предоставле</string>
+    <string name="permission_not_granted">Разрешение не предоставлено</string>
     <string name="hash_of_file">Хеш файла</string>
     <string name="hash_user_input">Хеш ввода</string>
+    <string name="permission_granted">Разрешение получено</string>
 </resources>
