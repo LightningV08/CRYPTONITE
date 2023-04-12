@@ -36,6 +36,14 @@ public class ChooseCryptTypeActivity extends AppCompatActivity {
         binding.des3Button.setOnClickListener(v -> {
         });
         binding.desButton.setOnClickListener(v -> {
+            switch (crypt_operation) {
+                case "encrypt":
+                    startActivity(new Intent(this, DESEncryptActivity.class));
+                    break;
+                case "decrypt":
+                    startActivity(new Intent(this, DESDecryptActivity.class));
+                    break;
+            }
         });
         binding.gostButton.setOnClickListener(v -> {
         });

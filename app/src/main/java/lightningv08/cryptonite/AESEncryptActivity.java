@@ -8,10 +8,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import lightningv08.cryptonite.databinding.ActivityAesEncryptBinding;
+import lightningv08.cryptonite.databinding.ActivityEncryptBinding;
 
 public class AESEncryptActivity extends AppCompatActivity {
-    private ActivityAesEncryptBinding binding;
+    private ActivityEncryptBinding binding;
     private final int FILE_SELECT_CODE = 1;
     private Uri uri;
     private String password;
@@ -19,7 +19,7 @@ public class AESEncryptActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityAesEncryptBinding.inflate(getLayoutInflater());
+        binding = ActivityEncryptBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         binding.chooseFileButton.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);

@@ -1,16 +1,16 @@
 package lightningv08.cryptonite;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import lightningv08.cryptonite.databinding.ActivityDecryptBinding;
 
-public class AESDecryptActivity extends AppCompatActivity {
+public class DESDecryptActivity extends AppCompatActivity {
 
     private ActivityDecryptBinding binding;
     private final int FILE_SELECT_CODE = 1;
@@ -38,9 +38,9 @@ public class AESDecryptActivity extends AppCompatActivity {
                 Toast.makeText(this, "Passwords don't match", Toast.LENGTH_SHORT).show();
                 return;
             }
-            AES aes = new AES(password);
+            DES des = new DES(password);
             try {
-                aes.decryptFileIv(getApplicationContext(), uri);
+                des.decryptFileIv(getApplicationContext(), uri);
                 Toast.makeText(this, "File decrypted", Toast.LENGTH_SHORT).show();
                 setResult(RESULT_OK, getIntent());
             } catch (Exception e) {

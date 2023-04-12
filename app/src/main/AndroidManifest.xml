@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
 
     <application
         android:allowBackup="true"
@@ -19,6 +18,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cryptonite"
         tools:targetApi="31">
+        <activity
+            android:name=".DESDecryptActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DESEncryptActivity"
+            android:exported="false" />
         <activity
             android:name=".HashFileActivity"
             android:exported="false" />

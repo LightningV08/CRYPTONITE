@@ -1,6 +1,5 @@
 package lightningv08.cryptonite;
 
-import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -8,62 +7,47 @@ import java.security.NoSuchAlgorithmException;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
-public class AES extends FileEncrypter {
-    protected final SecretKey key;
+public class DES extends FileEncrypter {
+
     protected final byte[] iv;
+    protected final SecretKey key;
 
-    private static final String SALT = "!CRYPTONITE_AES!";
+    private static final String SALT = "!CRYPTONITE_DES!";
 
-    public AES(String key, byte[] iv) {
-        this.key = new SecretKeySpec(key.getBytes(StandardCharsets.UTF_8), "AES");
-        this.iv = iv;
-    }
-
-    public AES(SecretKey key, byte[] iv) {
-        this.key = key;
-        this.iv = iv;
-    }
-
-    public AES(String key) {
+    public DES(String key) {
         try {
-            this.key = getKeyFromPassword(key, SALT, 256);
+            this.key = getKeyFromPassword(key, SALT, 64);
             this.iv = generateIV();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
-    public static SecretKey generateKey(int keySize) throws NoSuchAlgorithmException {
-        KeyGenerator keyGen = KeyGenerator.getInstance("AES");
-        keyGen.init(keySize);
-        return keyGen.generateKey();
-    }
-
+    @Override
     public byte[] encrypt(SecretKey key, byte[] iv, byte[] msg)
             throws NoSuchPaddingException, NoSuchAlgorithmException,
             InvalidAlgorithmParameterException, InvalidKeyException,
             IllegalBlockSizeException, BadPaddingException {
-
-        SecretKeySpec secretKeySpec = new SecretKeySpec(key.getEncoded(), "AES");
-        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        SecretKeySpec secretKeySpec = new SecretKeySpec(key.getEncoded(), "DES");
+        Cipher cipher = Cipher.getInstance("DES/CBC/NoPadding");
         cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, new IvParameterSpec(iv));
 
         return cipher.doFinal(msg);
     }
 
+    @Override
     public byte[] decrypt(SecretKey key, byte[] iv, byte[] encrypted)
-            throws NoSuchPaddingException, NoSuchAlgorithmException,
+            throws IllegalBlockSizeException, BadPaddingException,
             InvalidAlgorithmParameterException, InvalidKeyException,
-            IllegalBlockSizeException, BadPaddingException {
-
-        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-        cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(iv));
+            NoSuchPaddingException, NoSuchAlgorithmException {
+        SecretKeySpec secretKeySpec = new SecretKeySpec(key.getEncoded(), "DES");
+        Cipher cipher = Cipher.getInstance("DES/CBC/NoPadding");
+        cipher.init(Cipher.DECRYPT_MODE, secretKeySpec, new IvParameterSpec(iv));
 
         return cipher.doFinal(encrypted);
     }
@@ -80,6 +64,6 @@ public class AES extends FileEncrypter {
 
     @Override
     protected int getIvSize() {
-        return 16;
+        return 8;
     }
 }
