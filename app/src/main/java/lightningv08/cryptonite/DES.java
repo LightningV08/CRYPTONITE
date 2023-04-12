@@ -14,9 +14,8 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class DES extends FileEncrypter {
 
-    protected final byte[] iv;
-    protected final SecretKey key;
-
+    private final byte[] iv;
+    private final SecretKey key;
     private static final String SALT = "!CRYPTONITE_DES!";
 
     public DES(String key) {

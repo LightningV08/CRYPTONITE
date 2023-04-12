@@ -15,9 +15,8 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
 public class AES extends FileEncrypter {
-    protected final SecretKey key;
-    protected final byte[] iv;
-
+    private final SecretKey key;
+    private final byte[] iv;
     private static final String SALT = "!CRYPTONITE_AES!";
 
     public AES(String key, byte[] iv) {

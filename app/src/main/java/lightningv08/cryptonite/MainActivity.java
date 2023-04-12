@@ -7,6 +7,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
+
+import java.security.Security;
+
 import lightningv08.cryptonite.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
