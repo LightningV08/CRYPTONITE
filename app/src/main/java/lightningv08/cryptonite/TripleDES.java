@@ -35,7 +35,7 @@ public class TripleDES extends FileEncrypter {
     public byte[] encrypt(SecretKey key, byte[] iv, byte[] msg)
             throws NoSuchPaddingException, NoSuchAlgorithmException,
             InvalidAlgorithmParameterException, InvalidKeyException,
-            IllegalBlockSizeException, BadPaddingException, NoSuchProviderException {
+            IllegalBlockSizeException, BadPaddingException {
         SecretKeySpec secretKeySpec = new SecretKeySpec(key.getEncoded(), "DES");
         Cipher cipher = Cipher.getInstance("DESede/CBC/NoPadding");
         cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, new IvParameterSpec(iv));
@@ -47,7 +47,7 @@ public class TripleDES extends FileEncrypter {
     public byte[] decrypt(SecretKey key, byte[] iv, byte[] encrypted)
             throws IllegalBlockSizeException, BadPaddingException,
             InvalidAlgorithmParameterException, InvalidKeyException,
-            NoSuchPaddingException, NoSuchAlgorithmException, NoSuchProviderException {
+            NoSuchPaddingException, NoSuchAlgorithmException {
         SecretKeySpec secretKeySpec = new SecretKeySpec(key.getEncoded(), "DES");
         Cipher cipher = Cipher.getInstance("DESede/CBC/NoPadding");
         cipher.init(Cipher.DECRYPT_MODE, secretKeySpec, new IvParameterSpec(iv));
