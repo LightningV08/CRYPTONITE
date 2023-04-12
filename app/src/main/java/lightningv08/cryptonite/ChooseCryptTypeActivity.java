@@ -30,6 +30,14 @@ public class ChooseCryptTypeActivity extends AppCompatActivity {
         binding.rsaButton.setOnClickListener(v -> {
         });
         binding.blowfishButton.setOnClickListener(v -> {
+            switch (crypt_operation) {
+                case "encrypt":
+                    startActivity(new Intent(this, BlowfishEncryptActivity.class));
+                    break;
+                case "decrypt":
+                    startActivity(new Intent(this, BlowfishDecryptActivity.class));
+                    break;
+            }
         });
         binding.twofishButton.setOnClickListener(v -> {
         });

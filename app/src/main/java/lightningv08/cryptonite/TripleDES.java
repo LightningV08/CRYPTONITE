@@ -1,12 +1,8 @@
 package lightningv08.cryptonite;
 
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
-
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
-import java.security.Security;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -36,7 +32,7 @@ public class TripleDES extends FileEncrypter {
             throws NoSuchPaddingException, NoSuchAlgorithmException,
             InvalidAlgorithmParameterException, InvalidKeyException,
             IllegalBlockSizeException, BadPaddingException {
-        SecretKeySpec secretKeySpec = new SecretKeySpec(key.getEncoded(), "DES");
+        SecretKeySpec secretKeySpec = new SecretKeySpec(key.getEncoded(), "DESede");
         Cipher cipher = Cipher.getInstance("DESede/CBC/NoPadding");
         cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, new IvParameterSpec(iv));
 
@@ -48,7 +44,7 @@ public class TripleDES extends FileEncrypter {
             throws IllegalBlockSizeException, BadPaddingException,
             InvalidAlgorithmParameterException, InvalidKeyException,
             NoSuchPaddingException, NoSuchAlgorithmException {
-        SecretKeySpec secretKeySpec = new SecretKeySpec(key.getEncoded(), "DES");
+        SecretKeySpec secretKeySpec = new SecretKeySpec(key.getEncoded(), "DESede");
         Cipher cipher = Cipher.getInstance("DESede/CBC/NoPadding");
         cipher.init(Cipher.DECRYPT_MODE, secretKeySpec, new IvParameterSpec(iv));
 
