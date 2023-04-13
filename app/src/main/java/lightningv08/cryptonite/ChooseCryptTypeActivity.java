@@ -80,6 +80,14 @@ public class ChooseCryptTypeActivity extends AppCompatActivity {
             }
         });
         binding.rc4Button.setOnClickListener(v -> {
+            switch (crypt_operation) {
+                case "encrypt":
+                    startActivity(new Intent(this, RC4EncryptActivity.class));
+                    break;
+                case "decrypt":
+                    startActivity(new Intent(this, RC4DecryptActivity.class));
+                    break;
+            }
         });
     }
 }
