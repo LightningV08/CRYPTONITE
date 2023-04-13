@@ -14,6 +14,9 @@ import java.security.Security;
 import lightningv08.cryptonite.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
+    static {
+        Security.insertProviderAt(new org.spongycastle.jce.provider.BouncyCastleProvider(), 1);
+    }
 
     private ActivityMainBinding binding;
     private SharedPreferences prefs;

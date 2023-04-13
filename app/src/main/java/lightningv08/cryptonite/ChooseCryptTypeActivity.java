@@ -40,6 +40,14 @@ public class ChooseCryptTypeActivity extends AppCompatActivity {
             }
         });
         binding.twofishButton.setOnClickListener(v -> {
+            switch (crypt_operation) {
+                case "encrypt":
+                    startActivity(new Intent(this, TwofishEncryptActivity.class));
+                    break;
+                case "decrypt":
+                    startActivity(new Intent(this, TwofishDecryptActivity.class));
+                    break;
+            }
         });
         binding.tripleDesButton.setOnClickListener(v -> {
             switch (crypt_operation) {

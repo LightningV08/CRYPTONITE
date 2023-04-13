@@ -60,16 +60,16 @@ public abstract class FileEncrypter {
     public abstract byte[] encrypt(SecretKey key, byte[] iv, byte[] msg)
             throws NoSuchPaddingException, NoSuchAlgorithmException,
             InvalidAlgorithmParameterException, InvalidKeyException,
-            IllegalBlockSizeException, BadPaddingException;
+            IllegalBlockSizeException, BadPaddingException, NoSuchProviderException;
 
     public abstract byte[] decrypt(SecretKey key, byte[] iv, byte[] encrypted)
             throws IllegalBlockSizeException, BadPaddingException,
             InvalidAlgorithmParameterException, InvalidKeyException,
-            NoSuchPaddingException, NoSuchAlgorithmException;
+            NoSuchPaddingException, NoSuchAlgorithmException, NoSuchProviderException;
 
     public void encryptFileIv(Context context, Uri uri) throws IOException,
             InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException,
-            NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+            NoSuchAlgorithmException, BadPaddingException, InvalidKeyException, NoSuchProviderException {
 
         InputStream inputStream = context.getContentResolver().openInputStream(uri);
 
@@ -83,7 +83,7 @@ public abstract class FileEncrypter {
 
     public void decryptFileIv(Context context, Uri uri) throws IOException,
             InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException,
-            NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+            NoSuchAlgorithmException, BadPaddingException, InvalidKeyException, NoSuchProviderException {
 
         InputStream inputStream = context.getContentResolver().openInputStream(uri);
         byte[] s = readInputStreamBytes(inputStream);

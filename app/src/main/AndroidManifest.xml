@@ -19,6 +19,12 @@
         android:theme="@style/Theme.Cryptonite"
         tools:targetApi="31">
         <activity
+            android:name=".TwofishDecryptActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TwofishEncryptActivity"
+            android:exported="false" />
+        <activity
             android:name=".BlowfishDecryptActivity"
             android:exported="false" />
         <activity

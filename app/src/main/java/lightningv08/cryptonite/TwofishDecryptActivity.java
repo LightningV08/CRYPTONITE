@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import lightningv08.cryptonite.databinding.ActivityDecryptBinding;
 
-public class BlowfishDecryptActivity extends AppCompatActivity {
+public class TwofishDecryptActivity extends AppCompatActivity {
 
     private ActivityDecryptBinding binding;
     private final int FILE_SELECT_CODE = 1;
@@ -38,9 +38,9 @@ public class BlowfishDecryptActivity extends AppCompatActivity {
                 Toast.makeText(this, "Passwords don't match", Toast.LENGTH_SHORT).show();
                 return;
             }
-            Blowfish blowfish = new Blowfish(password);
+            Twofish twofish = new Twofish(password);
             try {
-                blowfish.decryptFileIv(getApplicationContext(), uri);
+                twofish.decryptFileIv(getApplicationContext(), uri);
                 Toast.makeText(this, "File decrypted", Toast.LENGTH_SHORT).show();
                 setResult(RESULT_OK, getIntent());
             } catch (Exception e) {
