@@ -70,6 +70,14 @@ public class ChooseCryptTypeActivity extends AppCompatActivity {
             }
         });
         binding.gostButton.setOnClickListener(v -> {
+            switch (crypt_operation) {
+                case "encrypt":
+                    startActivity(new Intent(this, GOSTEncryptActivity.class));
+                    break;
+                case "decrypt":
+                    startActivity(new Intent(this, GOSTDecryptActivity.class));
+                    break;
+            }
         });
         binding.rc4Button.setOnClickListener(v -> {
         });

@@ -11,7 +11,7 @@
     <string name="blowfish" translatable="false">Blowfish</string>
     <string name="twofish" translatable="false">Twofish</string>
     <string name="des3" translatable="false">3DES</string>
-    <string name="ГОСТ_28147_89" translatable="false">ГОСТ-28147-89</string>
+    <string name="GOST_28147_89">GOST-28147-89</string>
     <string name="rc4" translatable="false">RC4</string>
     <string name="choose_file_to_encrypt">Choose file to encrypt</string>
     <string name="choose_file">Choose file</string>
@@ -20,7 +20,7 @@
     <string name="aes_192" translatable="false">AES-192</string>
     <string name="aes_256" translatable="false">AES-256</string>
     <string name="choose_key_generation_mode">Choose key generation mode</string>
-    <string name="enter_pwd">Enter password (leave blank for random key)</string>
+    <string name="enter_pwd">Enter password</string>
     <string name="confirm_pwd">Confirm password</string>
     <string name="choose_hash">Choose hash algorithm</string>
     <string name="choose_algorithm">Choose Algorithm</string>
@@ -48,7 +48,7 @@
     <string name="type_text_to_hash">Type text to hash</string>
     <string name="result">Result</string>
     <string name="hash">Hash</string>
-    <string name="request_permisson">Request permisson</string>
+    <string name="request_permission">Request permission</string>
     <string name="permission_not_granted">Permission not granted</string>
     <string name="hash_of_file">Hash of a file</string>
     <string name="hash_user_input">Hash user input</string>

@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:background="@drawable/button"
-            android:text="@string/ГОСТ_28147_89"
+            android:text="@string/GOST_28147_89"
             android:textColor="@color/white"
             android:textSize="30sp" />
 
