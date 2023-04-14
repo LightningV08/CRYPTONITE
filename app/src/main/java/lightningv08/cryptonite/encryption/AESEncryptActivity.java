@@ -8,9 +8,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import lightningv08.cryptonite.R;
 import lightningv08.cryptonite.databinding.ActivityEncryptBinding;
 
 public class AESEncryptActivity extends AppCompatActivity {
+
     private ActivityEncryptBinding binding;
     private final int FILE_SELECT_CODE = 1;
     private Uri uri;
@@ -21,7 +23,7 @@ public class AESEncryptActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityEncryptBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        binding.chooseFileButton.setOnClickListener(v -> {
+        binding.selectFileButton.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
             intent.addCategory(Intent.CATEGORY_OPENABLE);
             intent.setType("*/*");
@@ -29,22 +31,22 @@ public class AESEncryptActivity extends AppCompatActivity {
         });
         binding.encryptButton.setOnClickListener(v -> {
             if (uri == null) {
-                Toast.makeText(this, "Choose file", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.choose_file, Toast.LENGTH_SHORT).show();
                 return;
             }
             password = binding.password.getText().toString();
             if (!password.isEmpty() && !password.equals(binding.confirmPassword.getText().toString())) {
-                Toast.makeText(this, "Passwords don't match", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.passwords_dont_match, Toast.LENGTH_SHORT).show();
                 return;
             }
             AES aes = new AES(password);
             try {
                 aes.encryptFileIv(getApplicationContext(), uri);
-                Toast.makeText(this, "File encrypted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.file_encrypted, Toast.LENGTH_SHORT).show();
                 setResult(RESULT_OK, getIntent());
             } catch (Exception e) {
                 Log.e("LightningV08", e.getMessage());
-                Toast.makeText(this, "Encryption error", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.encryption_error, Toast.LENGTH_SHORT).show();
             }
         });
     }

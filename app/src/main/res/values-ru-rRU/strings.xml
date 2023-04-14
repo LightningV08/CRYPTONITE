@@ -5,9 +5,9 @@
     <string name="get_hash">Хеширование</string>
     <string name="steganography">Стеганография</string>
     <string name="digital_signature">Цифровые Подписи</string>
-    <string name="choose_file">Выбрать файл</string>
+    <string name="select_file">Выбрать файл</string>
     <string name="GOST_28147_89">ГОСТ-28147-89</string>
-    <string name="choose_file_to_encrypt">Выберите файл для шифрования</string>
+    <string name="select_file_to_encrypt">Выберите файл для шифрования</string>
     <string name="choose_aes_key_size">Выберите размер ключа AES</string>
     <string name="choose_key_generation_mode">Выберите вариант генерации ключа</string>
     <string name="enter_pwd">Введите пароль</string>
@@ -15,7 +15,8 @@
     <string name="choose_hash">Выберите алгоритм хеширования</string>
     <string name="choose_algorithm">Выберите Алгоритм</string>
     <string name="choose_hash_algorithm">Выберите Алгоритм Хеширования</string>
-    <string name="choose_file_to_decrypt">Выберите файл для дешифрования</string>
+    <string name="gost3411">ГОСТ-34.11</string>
+    <string name="select_file_to_decrypt">Выберите файл для дешифрования</string>
     <string name="type_text_to_hash">Ввведите текст</string>
     <string name="result">Результат</string>
     <string name="hash">Хешировать</string>
@@ -24,4 +25,24 @@
     <string name="hash_of_file">Хеш файла</string>
     <string name="hash_user_input">Хеш ввода</string>
     <string name="permission_granted">Разрешение получено</string>
+    <string name="choose_rsa_key_size">Выберите размер ключа RSA</string>
+    <string name="generate_key_pair">Сгенерировать ключ</string>
+    <string name="or_select_public_key_file">или\n\nВыберите файл публичного ключа</string>
+    <string name="select_key_file">Выберите файл ключа</string>
+    <string name="select_private_key_file">Выберите файл приватного ключа</string>
+    <string name="choose_file_to_hash">Выберите файл для хеширования</string>
+    <string name="choose_file">Выберите файл</string>
+    <string name="file_encrypted">Файл зашифрова</string>
+    <string name="passwords_dont_match">Пароли не совпадают</string>
+    <string name="encryption_error">Ошибка при шифровании</string>
+    <string name="decryption_error">Ошибка при дешифровании</string>
+    <string name="file_decrypted">Файл дешифрован</string>
+    <string name="choose_key_file">Выберите файл ключа</string>
+    <string name="file_not_selected">Файл не выбран</string>
+    <string name="key_generation_error">Ошибка генерации ключа</string>
+    <string name="ask_generate_new_keys">Сгенерировать новые ключи?</string>
+    <string name="keys_already_generated">Ключи уже были сгенерированы</string>
+    <string name="choose_privkey">Выберите файл .privkey, не .pubkey</string>
+    <string name="choose_pubkey">Выберите файл .pubkey, не ,privkey</string>
+    <string name="hashing_error">Ошибка хеширования</string>
 </resources>

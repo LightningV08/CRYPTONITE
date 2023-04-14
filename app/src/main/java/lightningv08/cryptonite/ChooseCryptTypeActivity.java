@@ -16,6 +16,8 @@ import lightningv08.cryptonite.encryption.GOSTDecryptActivity;
 import lightningv08.cryptonite.encryption.GOSTEncryptActivity;
 import lightningv08.cryptonite.encryption.RC4DecryptActivity;
 import lightningv08.cryptonite.encryption.RC4EncryptActivity;
+import lightningv08.cryptonite.encryption.RSADecryptActivity;
+import lightningv08.cryptonite.encryption.RSAEncryptActivity;
 import lightningv08.cryptonite.encryption.TripleDESDecryptActivity;
 import lightningv08.cryptonite.encryption.TripleDESEncryptActivity;
 import lightningv08.cryptonite.encryption.TwofishDecryptActivity;
@@ -42,6 +44,14 @@ public class ChooseCryptTypeActivity extends AppCompatActivity {
             }
         });
         binding.rsaButton.setOnClickListener(v -> {
+            switch (crypt_operation) {
+                case "encrypt":
+                    startActivity(new Intent(this, RSAEncryptActivity.class));
+                    break;
+                case "decrypt":
+                    startActivity(new Intent(this, RSADecryptActivity.class));
+                    break;
+            }
         });
         binding.blowfishButton.setOnClickListener(v -> {
             switch (crypt_operation) {

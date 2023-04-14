@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="@color/background"
+    tools:context=".encryption.RSADecryptActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,54 +36,28 @@
             android:textSize="30sp" />
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="35dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center_horizontal"
+            android:text="@string/select_private_key_file"
+            android:textColor="@color/black"
+            android:textSize="24.5sp" />
+
+        <Button
+            android:id="@+id/select_privkey_file_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginHorizontal="20dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center_horizontal"
-            android:text="@string/enter_pwd"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:textSize="25sp" />
-
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginHorizontal="20dp"
-            android:autofillHints="password"
-            android:gravity="center_horizontal"
-            android:inputType="textPassword"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginHorizontal="20dp"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center_horizontal"
-            android:text="@string/confirm_pwd"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:textSize="25sp" />
-
-        <EditText
-            android:id="@+id/confirm_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="10dp"
-            android:autofillHints="password"
-            android:gravity="center_horizontal"
-            android:inputType="textPassword"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+            android:layout_marginRight="20dp"
+            android:background="@drawable/button"
+            android:text="@string/select_key_file"
+            android:textColor="@color/white"
+            android:textSize="28.5sp" />
 
         <Button
             android:id="@+id/decrypt_button"
@@ -89,11 +65,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="60dp"
             android:background="@drawable/button"
             android:text="@string/decrypt"
             android:textColor="@color/white"
             android:textSize="30sp" />
 
     </LinearLayout>
+
 </ScrollView>

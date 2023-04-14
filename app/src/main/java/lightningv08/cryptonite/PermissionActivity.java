@@ -1,9 +1,13 @@
 package lightningv08.cryptonite;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 
 import lightningv08.cryptonite.databinding.ActivityPermissionBinding;
 
@@ -12,6 +16,7 @@ public class PermissionActivity extends AppCompatActivity {
     private static final int PERMISSION_STORAGE = 101;
     private SharedPreferences prefs;
 
+    @RequiresApi(api = Build.VERSION_CODES.R)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +26,8 @@ public class PermissionActivity extends AppCompatActivity {
         prefs = getSharedPreferences("com.lightningv08.cryptonite", MODE_PRIVATE);
 
         binding.permissionButton.setOnClickListener(v -> {
+            Intent intent = new Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION);
+            startActivity(intent);
             if (PermissionUtils.hasPermissions(this)) return;
             PermissionUtils.requestPermissions(this, PERMISSION_STORAGE);
         });

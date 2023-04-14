@@ -20,12 +20,12 @@
             android:layout_marginTop="40dp"
             android:fontFamily="sans-serif-medium"
             android:gravity="center_horizontal"
-            android:text="Choose file to hash"
+            android:text="@string/choose_file_to_hash"
             android:textColor="@color/black"
             android:textSize="25sp" />
 
         <Button
-            android:id="@+id/choose_file_button"
+            android:id="@+id/select_file_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -33,7 +33,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/button"
-            android:text="@string/choose_file"
+            android:text="@string/select_file"
             android:textColor="@color/white"
             android:textSize="30sp" />
 

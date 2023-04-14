@@ -45,7 +45,7 @@ public class HashTextActivity extends AppCompatActivity {
                         md.update(input.getBytes(StandardCharsets.UTF_8));
                         hash = Hex.toHexString(md.digest());
                     } catch (NoSuchAlgorithmException e) {
-                        Toast.makeText(getApplicationContext(), "Hashing error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), R.string.hashing_error, Toast.LENGTH_SHORT).show();
                         Log.e("LightningV08", e.toString());
                     }
                     break;

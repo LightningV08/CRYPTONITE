@@ -13,8 +13,8 @@
     <string name="des3" translatable="false">3DES</string>
     <string name="GOST_28147_89">GOST-28147-89</string>
     <string name="rc4" translatable="false">RC4</string>
-    <string name="choose_file_to_encrypt">Choose file to encrypt</string>
-    <string name="choose_file">Choose file</string>
+    <string name="select_file_to_encrypt">Select file to encrypt</string>
+    <string name="select_file">Select file</string>
     <string name="choose_aes_key_size">Choose AES key size</string>
     <string name="aes_128" translatable="false">AES-128</string>
     <string name="aes_192" translatable="false">AES-192</string>
@@ -43,8 +43,8 @@
     <string name="blake128" translatable="false">Blake128</string>
     <string name="sha384" translatable="false">SHA384</string>
     <string name="sha224" translatable="false">SHA224</string>
-    <string name="gost3411" translatable="false">ГОСТ-34.11</string>
-    <string name="choose_file_to_decrypt">Choose file to decrypt</string>
+    <string name="gost3411">GOST-34.11</string>
+    <string name="select_file_to_decrypt">Select file to decrypt</string>
     <string name="type_text_to_hash">Type text to hash</string>
     <string name="result">Result</string>
     <string name="hash">Hash</string>
@@ -53,4 +53,25 @@
     <string name="hash_of_file">Hash of a file</string>
     <string name="hash_user_input">Hash user input</string>
     <string name="permission_granted">Permission granted</string>
+    <string name="standard_rsa_key_size" translatable="false">2048</string>
+    <string name="choose_rsa_key_size">Choose RSA key size</string>
+    <string name="generate_key_pair">Generate key pair</string>
+    <string name="or_select_public_key_file">or\n\nSelect public key file</string>
+    <string name="select_key_file">Select key file</string>
+    <string name="select_private_key_file">Select private key file</string>
+    <string name="choose_file_to_hash">Choose file to hash</string>
+    <string name="choose_file">Choose file</string>
+    <string name="file_encrypted">File encrypted</string>
+    <string name="passwords_dont_match">Passwords don\'t match</string>
+    <string name="encryption_error">Encryption error</string>
+    <string name="decryption_error">Decryption error</string>
+    <string name="file_decrypted">File decrypted</string>
+    <string name="choose_key_file">Choose key file</string>
+    <string name="file_not_selected">File not selected</string>
+    <string name="key_generation_error">Key generation error</string>
+    <string name="ask_generate_new_keys">Do you want to generate new keys?</string>
+    <string name="keys_already_generated">Keys have been already generated</string>
+    <string name="choose_privkey">Choose .privkey file, not .pubkey</string>
+    <string name="choose_pubkey">Choose .pubkey file, not .privkey</string>
+    <string name="hashing_error">Hashing error</string>
 </resources>

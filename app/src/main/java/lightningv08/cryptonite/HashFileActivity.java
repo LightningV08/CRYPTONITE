@@ -38,7 +38,7 @@ public class HashFileActivity extends AppCompatActivity {
         binding = ActivityHashFileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         hash_algorithm = getIntent().getStringExtra("hash_algorithm");
-        binding.chooseFileButton.setOnClickListener(v -> {
+        binding.selectFileButton.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
             intent.addCategory(Intent.CATEGORY_OPENABLE);
             intent.setType("*/*");
@@ -64,7 +64,7 @@ public class HashFileActivity extends AppCompatActivity {
             InputStream inputStream = getContentResolver().openInputStream(uri);
             input = readInputStream(inputStream);
         } catch (IOException e) {
-            Toast.makeText(getApplicationContext(), "Hashing error", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.hashing_error, Toast.LENGTH_SHORT).show();
             Log.e("LightningV08", e.toString());
         }
 
@@ -80,7 +80,7 @@ public class HashFileActivity extends AppCompatActivity {
                     md.update(input.getBytes(StandardCharsets.UTF_8));
                     hash = Hex.toHexString(md.digest());
                 } catch (NoSuchAlgorithmException e) {
-                    Toast.makeText(getApplicationContext(), "Hashing error", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), R.string.hashing_error, Toast.LENGTH_SHORT).show();
                     Log.e("LightningV08", e.toString());
                 }
                 break;

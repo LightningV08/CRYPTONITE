@@ -55,7 +55,7 @@ public abstract class FileEncrypter {
     }
 
     @NonNull
-    private static byte[] joinByteArray(@NonNull byte[] byte1, @NonNull byte[] byte2) {
+    static byte[] joinByteArray(@NonNull byte[] byte1, @NonNull byte[] byte2) {
         return ByteBuffer.allocate(byte1.length + byte2.length)
                 .put(byte1)
                 .put(byte2)
@@ -63,7 +63,7 @@ public abstract class FileEncrypter {
     }
 
     @NonNull
-    private static byte[] readInputStreamBytes(InputStream inputStream) throws IOException {
+    static byte[] readInputStreamBytes(InputStream inputStream) throws IOException {
         return ByteStreams.toByteArray(inputStream);
     }
 
@@ -85,8 +85,8 @@ public abstract class FileEncrypter {
         InputStream inputStream = context.getContentResolver().openInputStream(uri);
 
         byte[] s = readInputStreamBytes(inputStream);
-        byte[] encrypted = encrypt(getKey(), getIv(), s);
         inputStream.close();
+        byte[] encrypted = encrypt(getKey(), getIv(), s);
         OutputStream outputStream = context.getContentResolver().openOutputStream(uri);
         outputStream.write(joinByteArray(getIv(), encrypted));
         outputStream.close();
@@ -99,10 +99,10 @@ public abstract class FileEncrypter {
 
         InputStream inputStream = context.getContentResolver().openInputStream(uri);
         byte[] s = readInputStreamBytes(inputStream);
+        inputStream.close();
         byte[] iv_ = Arrays.copyOfRange(s, 0, getIvSize());
         byte[] content = Arrays.copyOfRange(s, getIvSize(), s.length);
         byte[] decrypted = decrypt(getKey(), iv_, content);
-        inputStream.close();
         OutputStream outputStream = context.getContentResolver().openOutputStream(uri);
         outputStream.write(decrypted);
         outputStream.close();

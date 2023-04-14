@@ -18,8 +18,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private ActivityMainBinding binding;
+
     private SharedPreferences prefs;
+
     private boolean hashButtonOpened = false;
+
     private Fragment chooseHashInputFragment;
 
     @Override
