@@ -1,5 +1,7 @@
 package lightningv08.cryptonite.encryption;
 
+import androidx.annotation.NonNull;
+
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
@@ -19,7 +21,7 @@ public class AES extends FileEncrypter {
     private final byte[] iv;
     private static final String SALT = "!CRYPTONITE_AES!";
 
-    public AES(String key, byte[] iv) {
+    public AES(@NonNull String key, byte[] iv) {
         this.key = new SecretKeySpec(key.getBytes(StandardCharsets.UTF_8), "AES");
         this.iv = iv;
     }
@@ -44,7 +46,7 @@ public class AES extends FileEncrypter {
         return keyGen.generateKey();
     }
 
-    public byte[] encrypt(SecretKey key, byte[] iv, byte[] msg)
+    public byte[] encrypt(@NonNull SecretKey key, byte[] iv, byte[] msg)
             throws NoSuchPaddingException, NoSuchAlgorithmException,
             InvalidAlgorithmParameterException, InvalidKeyException,
             IllegalBlockSizeException, BadPaddingException {

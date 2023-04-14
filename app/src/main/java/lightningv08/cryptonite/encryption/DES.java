@@ -1,5 +1,7 @@
 package lightningv08.cryptonite.encryption;
 
+import androidx.annotation.NonNull;
+
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -28,7 +30,7 @@ public class DES extends FileEncrypter {
     }
 
     @Override
-    public byte[] encrypt(SecretKey key, byte[] iv, byte[] msg)
+    public byte[] encrypt(@NonNull SecretKey key, byte[] iv, byte[] msg)
             throws NoSuchPaddingException, NoSuchAlgorithmException,
             InvalidAlgorithmParameterException, InvalidKeyException,
             IllegalBlockSizeException, BadPaddingException {
@@ -40,7 +42,7 @@ public class DES extends FileEncrypter {
     }
 
     @Override
-    public byte[] decrypt(SecretKey key, byte[] iv, byte[] encrypted)
+    public byte[] decrypt(@NonNull SecretKey key, byte[] iv, byte[] encrypted)
             throws IllegalBlockSizeException, BadPaddingException,
             InvalidAlgorithmParameterException, InvalidKeyException,
             NoSuchPaddingException, NoSuchAlgorithmException {

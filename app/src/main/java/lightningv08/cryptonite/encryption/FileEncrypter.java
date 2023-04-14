@@ -3,6 +3,8 @@ package lightningv08.cryptonite.encryption;
 import android.content.Context;
 import android.net.Uri;
 
+import androidx.annotation.NonNull;
+
 import com.google.common.io.ByteStreams;
 
 import java.io.IOException;
@@ -28,13 +30,19 @@ import javax.crypto.spec.SecretKeySpec;
 
 public abstract class FileEncrypter {
 
-    public static SecretKey getKeyFromPassword(String password, String salt, int keyLength, int iterationCount) throws InvalidKeySpecException, NoSuchAlgorithmException {
+    @NonNull
+    public static SecretKey getKeyFromPassword(@NonNull String password, @NonNull String salt,
+                                               int keyLength, int iterationCount)
+            throws InvalidKeySpecException, NoSuchAlgorithmException {
         SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
         KeySpec spec = new PBEKeySpec(password.toCharArray(), salt.getBytes(), iterationCount, keyLength);
         return new SecretKeySpec(factory.generateSecret(spec).getEncoded(), "AES");
     }
 
-    public static SecretKey getKeyFromPassword(String password, String salt, int keyLength) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    @NonNull
+    public static SecretKey getKeyFromPassword(@NonNull String password, @NonNull String salt,
+                                               int keyLength)
+            throws NoSuchAlgorithmException, InvalidKeySpecException {
         SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
         KeySpec spec = new PBEKeySpec(password.toCharArray(), salt.getBytes(), 65536, keyLength);
         return new SecretKeySpec(factory.generateSecret(spec).getEncoded(), "AES");
@@ -46,14 +54,16 @@ public abstract class FileEncrypter {
         return b;
     }
 
-    private static byte[] joinByteArray(byte[] byte1, byte[] byte2) {
+    @NonNull
+    private static byte[] joinByteArray(@NonNull byte[] byte1, @NonNull byte[] byte2) {
         return ByteBuffer.allocate(byte1.length + byte2.length)
                 .put(byte1)
                 .put(byte2)
                 .array();
     }
 
-    private byte[] readInputStreamBytes(InputStream inputStream) throws IOException {
+    @NonNull
+    private static byte[] readInputStreamBytes(InputStream inputStream) throws IOException {
         return ByteStreams.toByteArray(inputStream);
     }
 
@@ -67,9 +77,10 @@ public abstract class FileEncrypter {
             InvalidAlgorithmParameterException, InvalidKeyException,
             NoSuchPaddingException, NoSuchAlgorithmException, NoSuchProviderException;
 
-    public void encryptFileIv(Context context, Uri uri) throws IOException,
+    public void encryptFileIv(@NonNull Context context, Uri uri) throws IOException,
             InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException,
-            NoSuchAlgorithmException, BadPaddingException, InvalidKeyException, NoSuchProviderException {
+            NoSuchAlgorithmException, BadPaddingException, InvalidKeyException,
+            NoSuchProviderException {
 
         InputStream inputStream = context.getContentResolver().openInputStream(uri);
 
@@ -81,9 +92,10 @@ public abstract class FileEncrypter {
         outputStream.close();
     }
 
-    public void decryptFileIv(Context context, Uri uri) throws IOException,
+    public void decryptFileIv(@NonNull Context context, Uri uri) throws IOException,
             InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException,
-            NoSuchAlgorithmException, BadPaddingException, InvalidKeyException, NoSuchProviderException {
+            NoSuchAlgorithmException, BadPaddingException, InvalidKeyException,
+            NoSuchProviderException {
 
         InputStream inputStream = context.getContentResolver().openInputStream(uri);
         byte[] s = readInputStreamBytes(inputStream);

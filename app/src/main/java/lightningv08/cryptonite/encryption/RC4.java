@@ -1,5 +1,7 @@
 package lightningv08.cryptonite.encryption;
 
+import androidx.annotation.NonNull;
+
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -28,7 +30,7 @@ public class RC4 extends FileEncrypter {
     }
 
     @Override
-    public byte[] encrypt(SecretKey key, byte[] iv, byte[] msg) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, NoSuchProviderException {
+    public byte[] encrypt(@NonNull SecretKey key, byte[] iv, byte[] msg) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, NoSuchProviderException {
         SecretKeySpec secretKeySpec = new SecretKeySpec(key.getEncoded(), "RC4");
         Cipher cipher = Cipher.getInstance("RC4", "SC");
         cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);
@@ -37,7 +39,7 @@ public class RC4 extends FileEncrypter {
     }
 
     @Override
-    public byte[] decrypt(SecretKey key, byte[] iv, byte[] encrypted) throws IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException, InvalidKeyException, NoSuchPaddingException, NoSuchAlgorithmException, NoSuchProviderException {
+    public byte[] decrypt(@NonNull SecretKey key, byte[] iv, byte[] encrypted) throws IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException, InvalidKeyException, NoSuchPaddingException, NoSuchAlgorithmException, NoSuchProviderException {
         SecretKeySpec secretKeySpec = new SecretKeySpec(key.getEncoded(), "RC4");
         Cipher cipher = Cipher.getInstance("RC4", "SC");
         cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);

@@ -1,12 +1,13 @@
 package lightningv08.cryptonite;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.bouncycastle.jcajce.provider.digest.Blake2b;
 import org.bouncycastle.jcajce.provider.digest.Blake2s;
@@ -16,17 +17,12 @@ import org.bouncycastle.jcajce.provider.digest.RIPEMD160;
 import org.bouncycastle.jcajce.provider.digest.Whirlpool;
 import org.bouncycastle.util.encoders.Hex;
 
-import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.stream.Collectors;
 
 import lightningv08.cryptonite.databinding.ActivityHashFileBinding;
 
@@ -48,12 +44,11 @@ public class HashFileActivity extends AppCompatActivity {
             intent.setType("*/*");
             startActivityForResult(intent, FILE_SELECT_CODE);
         });
-        binding.hashButton.setOnClickListener(v -> {
-            doHashing();
-        });
+        binding.hashButton.setOnClickListener(v -> doHashing());
     }
 
-    private String readInputStream(InputStream inputStream) throws IOException {
+    @NonNull
+    private String readInputStream(@NonNull InputStream inputStream) throws IOException {
         ByteArrayOutputStream result = new ByteArrayOutputStream();
         byte[] buffer = new byte[1024];
         for (int length; (length = inputStream.read(buffer)) != -1; ) {
