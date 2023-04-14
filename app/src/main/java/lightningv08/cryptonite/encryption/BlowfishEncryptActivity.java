@@ -1,4 +1,4 @@
-package lightningv08.cryptonite;
+package lightningv08.cryptonite.encryption;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import lightningv08.cryptonite.databinding.ActivityEncryptBinding;
 
-public class DESEncryptActivity extends AppCompatActivity {
+public class BlowfishEncryptActivity extends AppCompatActivity {
 
     private ActivityEncryptBinding binding;
     private final int FILE_SELECT_CODE = 1;
@@ -38,9 +38,9 @@ public class DESEncryptActivity extends AppCompatActivity {
                 Toast.makeText(this, "Passwords don't match", Toast.LENGTH_SHORT).show();
                 return;
             }
-            DES des = new DES(password);
+            Blowfish blowfish = new Blowfish(password);
             try {
-                des.encryptFileIv(getApplicationContext(), uri);
+                blowfish.encryptFileIv(getApplicationContext(), uri);
                 Toast.makeText(this, "File encrypted", Toast.LENGTH_SHORT).show();
                 setResult(RESULT_OK, getIntent());
             } catch (Exception e) {

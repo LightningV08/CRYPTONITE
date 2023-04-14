@@ -1,4 +1,4 @@
-package lightningv08.cryptonite;
+package lightningv08.cryptonite.encryption;
 
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
@@ -13,13 +13,13 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
-public class RC4 extends FileEncrypter {
+public class GOST28147 extends FileEncrypter {
 
     private final SecretKey key;
     private final byte[] iv;
-    private final String SALT = "!CRYPTONITE_RC4!";
+    private static final String SALT = "!CRYPTONITE_GOST";
 
-    public RC4(String key) {
+    public GOST28147(String key) {
         try {
             this.key = getKeyFromPassword(key, SALT, 256);
             this.iv = generateIV();
@@ -30,18 +30,18 @@ public class RC4 extends FileEncrypter {
 
     @Override
     public byte[] encrypt(SecretKey key, byte[] iv, byte[] msg) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, NoSuchProviderException {
-        SecretKeySpec secretKeySpec = new SecretKeySpec(key.getEncoded(), "RC4");
-        Cipher cipher = Cipher.getInstance("RC4", "SC");
-        cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);
+        SecretKeySpec secretKeySpec = new SecretKeySpec(key.getEncoded(), "GOST28147");
+        Cipher cipher = Cipher.getInstance("GOST28147/CBC/PKCS5Padding", "SC");
+        cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, new IvParameterSpec(iv));
 
         return cipher.doFinal(msg);
     }
 
     @Override
     public byte[] decrypt(SecretKey key, byte[] iv, byte[] encrypted) throws IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException, InvalidKeyException, NoSuchPaddingException, NoSuchAlgorithmException, NoSuchProviderException {
-        SecretKeySpec secretKeySpec = new SecretKeySpec(key.getEncoded(), "RC4");
-        Cipher cipher = Cipher.getInstance("RC4", "SC");
-        cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);
+        SecretKeySpec secretKeySpec = new SecretKeySpec(key.getEncoded(), "GOST28147");
+        Cipher cipher = Cipher.getInstance("GOST28147/CBC/PKCS5Padding", "SC");
+        cipher.init(Cipher.DECRYPT_MODE, secretKeySpec, new IvParameterSpec(iv));
 
         return cipher.doFinal(encrypted);
     }
@@ -58,6 +58,6 @@ public class RC4 extends FileEncrypter {
 
     @Override
     protected int getIvSize() {
-        return 16;
+        return 8;
     }
 }

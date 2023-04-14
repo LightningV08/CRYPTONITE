@@ -1,4 +1,4 @@
-package lightningv08.cryptonite;
+package lightningv08.cryptonite.encryption;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import lightningv08.cryptonite.databinding.ActivityDecryptBinding;
 
-public class RC4DecryptActivity extends AppCompatActivity {
+public class TripleDESDecryptActivity extends AppCompatActivity {
 
     private ActivityDecryptBinding binding;
     private final int FILE_SELECT_CODE = 1;
@@ -38,9 +38,9 @@ public class RC4DecryptActivity extends AppCompatActivity {
                 Toast.makeText(this, "Passwords don't match", Toast.LENGTH_SHORT).show();
                 return;
             }
-            RC4 rc4 = new RC4(password);
+            TripleDES tripleDES = new TripleDES(password);
             try {
-                rc4.decryptFileIv(getApplicationContext(), uri);
+                tripleDES.decryptFileIv(getApplicationContext(), uri);
                 Toast.makeText(this, "File decrypted", Toast.LENGTH_SHORT).show();
                 setResult(RESULT_OK, getIntent());
             } catch (Exception e) {

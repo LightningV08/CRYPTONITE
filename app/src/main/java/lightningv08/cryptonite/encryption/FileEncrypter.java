@@ -1,4 +1,4 @@
-package lightningv08.cryptonite;
+package lightningv08.cryptonite.encryption;
 
 import android.content.Context;
 import android.net.Uri;
@@ -46,14 +46,14 @@ public abstract class FileEncrypter {
         return b;
     }
 
-    protected static byte[] joinByteArray(byte[] byte1, byte[] byte2) {
+    private static byte[] joinByteArray(byte[] byte1, byte[] byte2) {
         return ByteBuffer.allocate(byte1.length + byte2.length)
                 .put(byte1)
                 .put(byte2)
                 .array();
     }
 
-    protected byte[] readInputStreamBytes(InputStream inputStream) throws IOException {
+    private byte[] readInputStreamBytes(InputStream inputStream) throws IOException {
         return ByteStreams.toByteArray(inputStream);
     }
 

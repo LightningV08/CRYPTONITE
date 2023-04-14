@@ -1,4 +1,4 @@
-package lightningv08.cryptonite;
+package lightningv08.cryptonite.encryption;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import lightningv08.cryptonite.databinding.ActivityDecryptBinding;
 
-public class TwofishDecryptActivity extends AppCompatActivity {
+public class GOSTDecryptActivity extends AppCompatActivity {
 
     private ActivityDecryptBinding binding;
     private final int FILE_SELECT_CODE = 1;
@@ -38,9 +38,9 @@ public class TwofishDecryptActivity extends AppCompatActivity {
                 Toast.makeText(this, "Passwords don't match", Toast.LENGTH_SHORT).show();
                 return;
             }
-            Twofish twofish = new Twofish(password);
+            GOST28147 gost28147 = new GOST28147(password);
             try {
-                twofish.decryptFileIv(getApplicationContext(), uri);
+                gost28147.decryptFileIv(getApplicationContext(), uri);
                 Toast.makeText(this, "File decrypted", Toast.LENGTH_SHORT).show();
                 setResult(RESULT_OK, getIntent());
             } catch (Exception e) {

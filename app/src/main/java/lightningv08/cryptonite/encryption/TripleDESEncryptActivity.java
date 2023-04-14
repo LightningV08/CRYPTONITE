@@ -1,4 +1,6 @@
-package lightningv08.cryptonite;
+package lightningv08.cryptonite.encryption;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -6,11 +8,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import lightningv08.cryptonite.databinding.ActivityEncryptBinding;
 
-public class AESEncryptActivity extends AppCompatActivity {
+public class TripleDESEncryptActivity extends AppCompatActivity {
+
     private ActivityEncryptBinding binding;
     private final int FILE_SELECT_CODE = 1;
     private Uri uri;
@@ -37,9 +38,9 @@ public class AESEncryptActivity extends AppCompatActivity {
                 Toast.makeText(this, "Passwords don't match", Toast.LENGTH_SHORT).show();
                 return;
             }
-            AES aes = new AES(password);
+            TripleDES tripleDES = new TripleDES(password);
             try {
-                aes.encryptFileIv(getApplicationContext(), uri);
+                tripleDES.encryptFileIv(getApplicationContext(), uri);
                 Toast.makeText(this, "File encrypted", Toast.LENGTH_SHORT).show();
                 setResult(RESULT_OK, getIntent());
             } catch (Exception e) {

@@ -1,4 +1,4 @@
-package lightningv08.cryptonite;
+package lightningv08.cryptonite.encryption;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,11 +8,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
-import lightningv08.cryptonite.databinding.ActivityEncryptBinding;
+import lightningv08.cryptonite.databinding.ActivityDecryptBinding;
 
-public class GOSTEncryptActivity extends AppCompatActivity {
+public class RC4DecryptActivity extends AppCompatActivity {
 
-    private ActivityEncryptBinding binding;
+    private ActivityDecryptBinding binding;
     private final int FILE_SELECT_CODE = 1;
     private Uri uri;
     private String password;
@@ -20,7 +20,7 @@ public class GOSTEncryptActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityEncryptBinding.inflate(getLayoutInflater());
+        binding = ActivityDecryptBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         binding.chooseFileButton.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
@@ -28,7 +28,7 @@ public class GOSTEncryptActivity extends AppCompatActivity {
             intent.setType("*/*");
             startActivityForResult(intent, FILE_SELECT_CODE);
         });
-        binding.encryptButton.setOnClickListener(v -> {
+        binding.decryptButton.setOnClickListener(v -> {
             if (uri == null) {
                 Toast.makeText(this, "Choose file", Toast.LENGTH_SHORT).show();
                 return;
@@ -38,14 +38,14 @@ public class GOSTEncryptActivity extends AppCompatActivity {
                 Toast.makeText(this, "Passwords don't match", Toast.LENGTH_SHORT).show();
                 return;
             }
-            GOST28147 gost28147 = new GOST28147(password);
+            RC4 rc4 = new RC4(password);
             try {
-                gost28147.encryptFileIv(getApplicationContext(), uri);
-                Toast.makeText(this, "File encrypted", Toast.LENGTH_SHORT).show();
+                rc4.decryptFileIv(getApplicationContext(), uri);
+                Toast.makeText(this, "File decrypted", Toast.LENGTH_SHORT).show();
                 setResult(RESULT_OK, getIntent());
             } catch (Exception e) {
-                Log.e("LightningV08", e.getMessage());
-                Toast.makeText(this, "Encryption error", Toast.LENGTH_SHORT).show();
+                Log.e("LightningV08", e.toString());
+                Toast.makeText(this, "Decryption error", Toast.LENGTH_SHORT).show();
             }
         });
     }

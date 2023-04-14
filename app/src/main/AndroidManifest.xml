@@ -19,40 +19,40 @@
         android:theme="@style/Theme.Cryptonite"
         tools:targetApi="31">
         <activity
-            android:name=".RC4DecryptActivity"
+            android:name=".encryption.RC4DecryptActivity"
             android:exported="false" />
         <activity
-            android:name=".RC4EncryptActivity"
+            android:name=".encryption.RC4EncryptActivity"
             android:exported="false" />
         <activity
-            android:name=".GOSTDecryptActivity"
+            android:name=".encryption.GOSTDecryptActivity"
             android:exported="false" />
         <activity
-            android:name=".GOSTEncryptActivity"
+            android:name=".encryption.GOSTEncryptActivity"
             android:exported="false" />
         <activity
-            android:name=".TwofishDecryptActivity"
+            android:name=".encryption.TwofishDecryptActivity"
             android:exported="false" />
         <activity
-            android:name=".TwofishEncryptActivity"
+            android:name=".encryption.TwofishEncryptActivity"
             android:exported="false" />
         <activity
-            android:name=".BlowfishDecryptActivity"
+            android:name=".encryption.BlowfishDecryptActivity"
             android:exported="false" />
         <activity
-            android:name=".BlowfishEncryptActivity"
+            android:name=".encryption.BlowfishEncryptActivity"
             android:exported="false" />
         <activity
-            android:name=".TripleDESDecryptActivity"
+            android:name=".encryption.TripleDESDecryptActivity"
             android:exported="false" />
         <activity
-            android:name=".TripleDESEncryptActivity"
+            android:name=".encryption.TripleDESEncryptActivity"
             android:exported="false" />
         <activity
-            android:name=".DESDecryptActivity"
+            android:name=".encryption.DESDecryptActivity"
             android:exported="false" />
         <activity
-            android:name=".DESEncryptActivity"
+            android:name=".encryption.DESEncryptActivity"
             android:exported="false" />
         <activity
             android:name=".HashFileActivity"
@@ -61,7 +61,7 @@
             android:name=".HashTextActivity"
             android:exported="false" />
         <activity
-            android:name=".AESDecryptActivity"
+            android:name=".encryption.AESDecryptActivity"
             android:exported="false" />
         <activity
             android:name=".PermissionActivity"
@@ -87,7 +87,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".AESEncryptActivity"
+            android:name=".encryption.AESEncryptActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
