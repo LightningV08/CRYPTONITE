@@ -32,7 +32,7 @@
     <string name="select_private_key_file">Выберите файл приватного ключа</string>
     <string name="choose_file_to_hash">Выберите файл для хеширования</string>
     <string name="choose_file">Выберите файл</string>
-    <string name="file_encrypted">Файл зашифрова</string>
+    <string name="file_encrypted">Файл зашифрован</string>
     <string name="passwords_dont_match">Пароли не совпадают</string>
     <string name="encryption_error">Ошибка при шифровании</string>
     <string name="decryption_error">Ошибка при дешифровании</string>
