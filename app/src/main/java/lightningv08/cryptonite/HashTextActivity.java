@@ -1,7 +1,10 @@
 package lightningv08.cryptonite;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +20,7 @@ import org.bouncycastle.util.encoders.Hex;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Objects;
 
 import lightningv08.cryptonite.databinding.ActivityHashTextBinding;
 
@@ -24,14 +28,22 @@ public class HashTextActivity extends AppCompatActivity {
 
     private ActivityHashTextBinding binding;
 
+    private String hash = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityHashTextBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         String hash_algorithm = getIntent().getStringExtra("hash_algorithm");
+        binding.copyButton.setOnClickListener(v -> {
+            ClipboardManager clipboardManager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+            if (!Objects.equals(hash, "")) {
+                clipboardManager.setPrimaryClip(ClipData.newPlainText("hash", binding.result.getText()));
+                Toast.makeText(this, R.string.hash_copied, Toast.LENGTH_SHORT).show();
+            } else Toast.makeText(this, R.string.calculate_hash_first, Toast.LENGTH_SHORT).show();
+        });
         binding.hashButton.setOnClickListener(v -> {
-            String hash = "";
             String input = binding.text.getText().toString();
             switch (hash_algorithm) {
                 case "SHA-512":
@@ -99,6 +111,7 @@ public class HashTextActivity extends AppCompatActivity {
                     break;
             }
             binding.result.setText(hash);
+            binding.copyButton.setVisibility(View.VISIBLE);
         });
     }
 }

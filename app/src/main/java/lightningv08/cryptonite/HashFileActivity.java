@@ -1,9 +1,12 @@
 package lightningv08.cryptonite;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,6 +26,7 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Objects;
 
 import lightningv08.cryptonite.databinding.ActivityHashFileBinding;
 
@@ -31,6 +35,8 @@ public class HashFileActivity extends AppCompatActivity {
     private final int FILE_SELECT_CODE = 1;
     private Uri uri;
     private String hash_algorithm;
+
+    private String hash = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +49,13 @@ public class HashFileActivity extends AppCompatActivity {
             intent.addCategory(Intent.CATEGORY_OPENABLE);
             intent.setType("*/*");
             startActivityForResult(intent, FILE_SELECT_CODE);
+        });
+        binding.copyButton.setOnClickListener(v -> {
+            ClipboardManager clipboardManager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+            if (!Objects.equals(hash, "")) {
+                clipboardManager.setPrimaryClip(ClipData.newPlainText("hash", binding.result.getText()));
+                Toast.makeText(this, R.string.hash_copied, Toast.LENGTH_SHORT).show();
+            } else Toast.makeText(this, R.string.calculate_hash_first, Toast.LENGTH_SHORT).show();
         });
         binding.hashButton.setOnClickListener(v -> doHashing());
     }
@@ -59,7 +72,7 @@ public class HashFileActivity extends AppCompatActivity {
 
     private void doHashing() {
         if (uri == null) return;
-        String hash = "", input = "";
+        String input = "";
         try {
             InputStream inputStream = getContentResolver().openInputStream(uri);
             input = readInputStream(inputStream);
@@ -134,6 +147,7 @@ public class HashFileActivity extends AppCompatActivity {
                 break;
         }
         binding.result.setText(hash);
+        binding.copyButton.setVisibility(View.VISIBLE);
     }
 
     @Override

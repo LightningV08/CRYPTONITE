@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -54,6 +53,18 @@
             android:textColor="@color/black"
             android:textSize="25sp"
             tools:text="e0bb92dc83119cf2c74f1c76d03e0a89ac6b84086046596bd696f7ef5c123389120a1949b878efe3f51d8d4b45a00bf0b3efbc2a3e6eff35a80b7d7f16b0a36c" />
+
+        <Button
+            android:id="@+id/copy_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/button"
+            android:text="@string/copy"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:visibility="gone" />
 
     </LinearLayout>
 

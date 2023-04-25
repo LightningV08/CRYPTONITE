@@ -45,4 +45,7 @@
     <string name="choose_privkey">Выберите файл .privkey, не .pubkey</string>
     <string name="choose_pubkey">Выберите файл .pubkey, не ,privkey</string>
     <string name="hashing_error">Ошибка хеширования</string>
+    <string name="copy">Скопировать</string>
+    <string name="hash_copied">Хеш-сумма скопирована</string>
+    <string name="calculate_hash_first">Сначала вычислите хеш</string>
 </resources>
