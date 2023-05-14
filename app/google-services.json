@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "312363411447",
+    "project_id": "cryptonite-fea73",
+    "storage_bucket": "cryptonite-fea73.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:312363411447:android:13cef32f3afa97959970f2",
+        "android_client_info": {
+          "package_name": "lightningv08.cryptonite"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "312363411447-3aur4qhdvnf9kmhktv1jv0e2267i08hq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVrJoJ2j32EKEwdFM9kIrLiC9NEnKkAP4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "312363411447-3aur4qhdvnf9kmhktv1jv0e2267i08hq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
