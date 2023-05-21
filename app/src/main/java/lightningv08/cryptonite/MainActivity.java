@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 hashButtonOpened = false;
             }
         });
+        binding.cloudButton.setOnClickListener(v -> startActivity(new Intent(this, CloudActivity.class)));
     }
 
     @Override

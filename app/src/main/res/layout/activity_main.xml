@@ -84,4 +84,16 @@
         android:textColor="@color/white"
         android:textSize="20sp" />
 
+    <Button
+        android:id="@+id/cloud_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/button"
+        android:text="@string/cloud_features"
+        android:textColor="@color/white"
+        android:textSize="30sp" />
+
 </LinearLayout>

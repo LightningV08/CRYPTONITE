@@ -48,4 +48,20 @@
     <string name="copy">Скопировать</string>
     <string name="hash_copied">Хеш-сумма скопирована</string>
     <string name="calculate_hash_first">Сначала вычислите хеш</string>
+    <string name="login">Войти</string>
+    <string name="email">Электронная почта</string>
+    <string name="password">Пароль</string>
+    <string name="register">Зарегистрироваться</string>
+    <string name="click_to_login">Войти</string>
+    <string name="click_to_register">Зарегистрироваться</string>
+    <string name="cloud_features">Облачные функции</string>
+    <string name="not_logged_in">Вы не авторизованы</string>
+    <string name="cryptonite_cloud_features">Облачные функции CRYPTONITE</string>
+    <string name="login_or_register">Войти или зарегистрироваться</string>
+    <string name="log_out">Выйти</string>
+    <string name="enter_email">Введите e-mail</string>
+    <string name="authentication_failed">Ошибка аутентификации</string>
+    <string name="account_created">Аккаунт успешно создан</string>
+    <string name="already_logged_in">Вы уже авторизованы</string>
+    <string name="login_successful">Успешный вход</string>
 </resources>

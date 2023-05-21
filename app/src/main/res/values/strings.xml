@@ -77,4 +77,20 @@
     <string name="copy">Copy to clipboard</string>
     <string name="hash_copied">Hash sum copied to clipboard</string>
     <string name="calculate_hash_first">Calculate hash first</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="click_to_login">Click to login</string>
+    <string name="click_to_register">Click to register</string>
+    <string name="cloud_features">Cloud Features</string>
+    <string name="not_logged_in">Not Logged in</string>
+    <string name="cryptonite_cloud_features">CRYPTONITE Cloud Features</string>
+    <string name="login_or_register">Login or register</string>
+    <string name="log_out">Log out</string>
+    <string name="enter_email">Enter email</string>
+    <string name="authentication_failed">Authentication failed</string>
+    <string name="account_created">Account created</string>
+    <string name="already_logged_in">You are already logged in</string>
+    <string name="login_successful">Successful login</string>
 </resources>
