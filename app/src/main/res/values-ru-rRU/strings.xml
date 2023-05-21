@@ -64,4 +64,10 @@
     <string name="account_created">Аккаунт успешно создан</string>
     <string name="already_logged_in">Вы уже авторизованы</string>
     <string name="login_successful">Успешный вход</string>
+    <string name="download">Скачать</string>
+    <string name="upload">Загрузить в облако</string>
+    <string name="not_authorized">Вы не авторизованы</string>
+    <string name="logged_in_as">Вы вошли как</string>
+    <string name="file_upload_failed">Ошибка загрузки файла</string>
+    <string name="file_uploaded_successfully">Файл успешно загружен</string>
 </resources>

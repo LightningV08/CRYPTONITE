@@ -93,4 +93,10 @@
     <string name="account_created">Account created</string>
     <string name="already_logged_in">You are already logged in</string>
     <string name="login_successful">Successful login</string>
+    <string name="download">Download</string>
+    <string name="upload">Upload to cloud</string>
+    <string name="not_authorized">You are not authorized</string>
+    <string name="logged_in_as">Logged in as</string>
+    <string name="file_upload_failed">File upload failed</string>
+    <string name="file_uploaded_successfully">File uploaded successfully</string>
 </resources>
