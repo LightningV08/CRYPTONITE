@@ -1,11 +1,19 @@
 package lightningv08.cryptonite;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.os.Bundle;
-
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.File;
+import java.util.Objects;
 
 import lightningv08.cryptonite.databinding.ActivityCloudBinding;
 
@@ -13,6 +21,9 @@ public class CloudActivity extends AppCompatActivity {
 
     private ActivityCloudBinding binding;
     private FirebaseAuth auth;
+    private StorageReference storageReference;
+    private final static int FILE_SELECT_CODE = 1;
+    private Uri uri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +31,7 @@ public class CloudActivity extends AppCompatActivity {
         binding = ActivityCloudBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         auth = FirebaseAuth.getInstance();
+        storageReference = FirebaseStorage.getInstance().getReference();
 
         binding.authButton.setOnClickListener(v -> startActivity(new Intent(this, LoginActivity.class)));
 
@@ -27,12 +39,25 @@ public class CloudActivity extends AppCompatActivity {
             FirebaseAuth.getInstance().signOut();
             binding.userEmail.setText(R.string.not_logged_in);
         });
+
+        binding.uploadButton.setOnClickListener(v -> {
+            if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+                Toast.makeText(this, R.string.not_authorized, Toast.LENGTH_SHORT).show();
+                return;
+            }
+            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+            intent.addCategory(Intent.CATEGORY_OPENABLE);
+            intent.setType("*/*");
+            startActivityForResult(intent, FILE_SELECT_CODE);
+        });
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        binding.userEmail.setText(auth.getCurrentUser() == null ? getResources().getString(R.string.not_logged_in) : "Logged in as " + auth.getCurrentUser().getEmail());
+        binding.userEmail.setText(auth.getCurrentUser() == null
+                ? getResources().getString(R.string.not_logged_in)
+                : R.string.logged_in_as + auth.getCurrentUser().getEmail());
     }
 
     @Override
@@ -40,5 +65,29 @@ public class CloudActivity extends AppCompatActivity {
         super.onBackPressed();
         startActivity(new Intent(this, MainActivity.class));
         finish();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            switch (requestCode) {
+                case FILE_SELECT_CODE:
+                    uri = data.getData();
+                    String path = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid() + "/"
+                            + Uri.fromFile(new File(new FileUtils(getApplicationContext()).getPath(uri)))
+                            .getLastPathSegment();
+                    UploadTask uploadTask = storageReference.child(path).putFile(uri);
+
+                    uploadTask.addOnProgressListener(taskSnapshot -> {
+                        double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
+                    }).addOnFailureListener(exception -> {
+                        Toast.makeText(CloudActivity.this, R.string.file_upload_failed, Toast.LENGTH_SHORT).show();
+                    }).addOnSuccessListener(taskSnapshot -> {
+                        Toast.makeText(CloudActivity.this, R.string.file_uploaded_successfully, Toast.LENGTH_SHORT).show();
+                    });
+                    break;
+            }
+        }
     }
 }
