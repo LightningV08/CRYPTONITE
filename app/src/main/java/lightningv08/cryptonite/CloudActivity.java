@@ -50,6 +50,14 @@ public class CloudActivity extends AppCompatActivity {
             intent.setType("*/*");
             startActivityForResult(intent, FILE_SELECT_CODE);
         });
+
+        binding.downloadButton.setOnClickListener(v -> {
+            if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+                Toast.makeText(this, R.string.not_authorized, Toast.LENGTH_SHORT).show();
+                return;
+            }
+            startActivity(new Intent(this, DownloadActivity.class));
+        });
     }
 
     @Override
@@ -57,7 +65,7 @@ public class CloudActivity extends AppCompatActivity {
         super.onResume();
         binding.userEmail.setText(auth.getCurrentUser() == null
                 ? getResources().getString(R.string.not_logged_in)
-                : R.string.logged_in_as + auth.getCurrentUser().getEmail());
+                : getResources().getString(R.string.logged_in_as) + " " + auth.getCurrentUser().getEmail());
     }
 
     @Override
@@ -74,7 +82,7 @@ public class CloudActivity extends AppCompatActivity {
             switch (requestCode) {
                 case FILE_SELECT_CODE:
                     uri = data.getData();
-                    String path = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid() + "/"
+                    String path = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser(), "user not logged in").getUid() + "/"
                             + Uri.fromFile(new File(new FileUtils(getApplicationContext()).getPath(uri)))
                             .getLastPathSegment();
                     UploadTask uploadTask = storageReference.child(path).putFile(uri);
