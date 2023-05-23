@@ -67,6 +67,17 @@
             android:text="@string/download"
             android:textColor="@color/white"
             android:textSize="27sp" />
+
+        <Button
+            android:id="@+id/delete_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/button"
+            android:text="@string/delete_from_cloud"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <TextView

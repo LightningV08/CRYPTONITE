@@ -14,19 +14,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import lightningv08.cryptonite.databinding.ActivityDownloadBinding;
+import lightningv08.cryptonite.databinding.ActivityDeleteBinding;
 
-public class DownloadActivity extends AppCompatActivity {
+public class DeleteActivity extends AppCompatActivity {
 
-    private ActivityDownloadBinding binding;
-    private final ArrayList<DownloadModel> downloadModels = new ArrayList<>();
-
-    private final DownloadAdapter adapter = new DownloadAdapter(downloadModels);
+    private ActivityDeleteBinding binding;
+    private final ArrayList<DownloadModel> deleteModels = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityDownloadBinding.inflate(getLayoutInflater());
+        binding = ActivityDeleteBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         StorageReference storageReference = FirebaseStorage.getInstance().getReference()
@@ -37,16 +35,15 @@ public class DownloadActivity extends AppCompatActivity {
         storageReference.listAll().addOnSuccessListener(listResult -> {
             List<StorageReference> list = listResult.getItems();
             if (list.isEmpty()) {
-                // No files uploaded
                 binding.progressBar.setVisibility(View.GONE);
                 binding.noFilesText.setVisibility(View.VISIBLE);
             }
             for (StorageReference fileRef : list) {
                 fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
-                    downloadModels.add(new DownloadModel(uri.getLastPathSegment().split("/")[1], uri.toString()));
+                    deleteModels.add(new DownloadModel(uri.getLastPathSegment().split("/")[1], uri.toString()));
                 }).addOnSuccessListener(uri -> {
                     binding.recycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-                    binding.recycler.setAdapter(adapter);
+                    binding.recycler.setAdapter(new DeleteAdapter(deleteModels));
                     binding.progressBar.setVisibility(View.GONE);
                 });
             }

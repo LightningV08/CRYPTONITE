@@ -22,7 +22,7 @@ public class CloudActivity extends AppCompatActivity {
     private ActivityCloudBinding binding;
     private FirebaseAuth auth;
     private StorageReference storageReference;
-    private final static int FILE_SELECT_CODE = 1;
+    private final static int UPLOAD_FILE_SELECT_CODE = 1;
     private Uri uri;
 
     @Override
@@ -48,7 +48,7 @@ public class CloudActivity extends AppCompatActivity {
             Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
             intent.addCategory(Intent.CATEGORY_OPENABLE);
             intent.setType("*/*");
-            startActivityForResult(intent, FILE_SELECT_CODE);
+            startActivityForResult(intent, UPLOAD_FILE_SELECT_CODE);
         });
 
         binding.downloadButton.setOnClickListener(v -> {
@@ -57,6 +57,14 @@ public class CloudActivity extends AppCompatActivity {
                 return;
             }
             startActivity(new Intent(this, DownloadActivity.class));
+        });
+
+        binding.deleteButton.setOnClickListener(v -> {
+            if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+                Toast.makeText(this, R.string.not_authorized, Toast.LENGTH_SHORT).show();
+                return;
+            }
+            startActivity(new Intent(this, DeleteActivity.class));
         });
     }
 
@@ -80,7 +88,7 @@ public class CloudActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             switch (requestCode) {
-                case FILE_SELECT_CODE:
+                case UPLOAD_FILE_SELECT_CODE:
                     uri = data.getData();
                     String path = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser(), "user not logged in").getUid() + "/"
                             + Uri.fromFile(new File(new FileUtils(getApplicationContext()).getPath(uri)))

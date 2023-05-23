@@ -99,4 +99,7 @@
     <string name="logged_in_as">Logged in as</string>
     <string name="file_upload_failed">File upload failed</string>
     <string name="file_uploaded_successfully">File uploaded successfully</string>
+    <string name="have_not_up_uploaded_any_files_yet">You haven\'t uploaded any files yet</string>
+    <string name="delete_from_cloud">Delete from Cloud</string>
+    <string name="delete">Delete</string>
 </resources>

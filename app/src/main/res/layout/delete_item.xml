@@ -38,13 +38,13 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/download_button"
+                android:id="@+id/delete_button"
                 android:layout_width="10dp"
                 android:layout_height="match_parent"
-                android:layout_weight=".30"
+                android:layout_weight=".25"
                 android:background="@drawable/button"
                 android:elevation="7dp"
-                android:text="@string/download"
+                android:text="@string/delete"
                 android:textColor="@color/white"
                 android:textSize="19sp" />
         </LinearLayout>

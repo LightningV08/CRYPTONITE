@@ -70,4 +70,7 @@
     <string name="logged_in_as">Вы вошли как</string>
     <string name="file_upload_failed">Ошибка загрузки файла</string>
     <string name="file_uploaded_successfully">Файл успешно загружен</string>
+    <string name="have_not_up_uploaded_any_files_yet">Вы ещё не загрузили ни одного файла</string>
+    <string name="delete_from_cloud">Удалить из облака</string>
+    <string name="delete">Удалить</string>
 </resources>
