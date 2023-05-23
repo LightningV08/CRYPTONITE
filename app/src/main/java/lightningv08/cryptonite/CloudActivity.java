@@ -90,18 +90,22 @@ public class CloudActivity extends AppCompatActivity {
             switch (requestCode) {
                 case UPLOAD_FILE_SELECT_CODE:
                     uri = data.getData();
-                    String path = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser(), "user not logged in").getUid() + "/"
-                            + Uri.fromFile(new File(new FileUtils(getApplicationContext()).getPath(uri)))
-                            .getLastPathSegment();
-                    UploadTask uploadTask = storageReference.child(path).putFile(uri);
+                    try {
+                        String path = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser(), "user not logged in").getUid() + "/"
+                                + Uri.fromFile(new File(new FileUtils(getApplicationContext()).getPath(uri)))
+                                .getLastPathSegment();
+                        UploadTask uploadTask = storageReference.child(path).putFile(uri);
 
-                    uploadTask.addOnProgressListener(taskSnapshot -> {
-                        double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
-                    }).addOnFailureListener(exception -> {
-                        Toast.makeText(CloudActivity.this, R.string.file_upload_failed, Toast.LENGTH_SHORT).show();
-                    }).addOnSuccessListener(taskSnapshot -> {
-                        Toast.makeText(CloudActivity.this, R.string.file_uploaded_successfully, Toast.LENGTH_SHORT).show();
-                    });
+                        uploadTask.addOnProgressListener(taskSnapshot -> {
+                            double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
+                        }).addOnFailureListener(exception -> {
+                            Toast.makeText(CloudActivity.this, R.string.file_upload_failed, Toast.LENGTH_SHORT).show();
+                        }).addOnSuccessListener(taskSnapshot -> {
+                            Toast.makeText(CloudActivity.this, R.string.file_uploaded_successfully, Toast.LENGTH_SHORT).show();
+                        });
+                    } catch (RuntimeException e) {
+                        Toast.makeText(this, R.string.file_upload_failed, Toast.LENGTH_SHORT).show();
+                    }
                     break;
             }
         }
