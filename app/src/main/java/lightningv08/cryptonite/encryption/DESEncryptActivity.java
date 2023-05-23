@@ -1,12 +1,12 @@
 package lightningv08.cryptonite.encryption;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.FirebaseStorage;
@@ -16,6 +16,7 @@ import java.io.File;
 import java.util.Objects;
 
 import lightningv08.cryptonite.FileUtils;
+import lightningv08.cryptonite.LoginActivity;
 import lightningv08.cryptonite.R;
 import lightningv08.cryptonite.databinding.ActivityEncryptBinding;
 
@@ -40,6 +41,10 @@ public class DESEncryptActivity extends AppCompatActivity {
         binding.uploadButton.setOnClickListener(v -> {
             if (uri == null) {
                 Toast.makeText(this, R.string.choose_file, Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+                startActivity(new Intent(this, LoginActivity.class));
                 return;
             }
             try {

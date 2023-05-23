@@ -17,6 +17,7 @@ import java.io.File;
 import java.util.Objects;
 
 import lightningv08.cryptonite.FileUtils;
+import lightningv08.cryptonite.LoginActivity;
 import lightningv08.cryptonite.R;
 import lightningv08.cryptonite.databinding.ActivityRsaEncryptBinding;
 
@@ -57,6 +58,10 @@ public class RSAEncryptActivity extends AppCompatActivity {
             if (!keySizeFragmentOpened) {
                 if (fileUri == null) {
                     Toast.makeText(this, R.string.file_not_selected, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+                    startActivity(new Intent(this, LoginActivity.class));
                     return;
                 }
                 chooseKeySizeFragment = new RSAGenerateKeysFragment(getApplicationContext(), fileUri);
