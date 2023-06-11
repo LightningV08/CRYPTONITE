@@ -98,9 +98,11 @@
     <string name="not_authorized">You are not authorized</string>
     <string name="logged_in_as">Logged in as</string>
     <string name="file_upload_failed">File upload failed</string>
-    <string name="file_uploaded_successfully">File uploaded successfully</string>
+    <string name="file_uploaded_successfully" translatable="false">File uploaded successfully</string>
     <string name="have_not_up_uploaded_any_files_yet">You haven\'t uploaded any files yet</string>
     <string name="delete_from_cloud">Delete from Cloud</string>
     <string name="delete">Delete</string>
     <string name="upload_file_to_cloud">Upload file to cloud</string>
+    <string name="email_not_verified">Email is not verified</string>
+    <string name="email_verification_sent_failed">Email verification sent failed</string>
 </resources>

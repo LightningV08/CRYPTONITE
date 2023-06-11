@@ -61,14 +61,33 @@ public class LoginActivity extends AppCompatActivity {
                     .addOnCompleteListener(task -> {
                         binding.progressBar.setVisibility(View.GONE);
                         if (task.isSuccessful()) {
-                            Toast.makeText(this, R.string.login_successful, Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), CloudActivity.class));
-                            finish();
+                            checkIfEmailVerified();
                         } else {
                             Toast.makeText(LoginActivity.this, R.string.authentication_failed,
                                     Toast.LENGTH_SHORT).show();
                         }
                     });
         });
+    }
+
+    private void checkIfEmailVerified() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        assert user != null;
+        if (user.isEmailVerified()) {
+            Toast.makeText(this, R.string.login_successful, Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(getApplicationContext(), CloudActivity.class));
+            finish();
+        } else {
+            FirebaseAuth.getInstance().signOut();
+            Toast.makeText(this, R.string.email_not_verified, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this, CloudActivity.class));
+        finish();
     }
 }

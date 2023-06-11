@@ -74,4 +74,6 @@
     <string name="delete_from_cloud">Удалить из облака</string>
     <string name="delete">Удалить</string>
     <string name="upload_file_to_cloud">Загрузить файл в облачное хранилище</string>
+    <string name="email_not_verified">Email не подтверждён</string>
+    <string name="email_verification_sent_failed">Не удалось подтвердить email</string>
 </resources>

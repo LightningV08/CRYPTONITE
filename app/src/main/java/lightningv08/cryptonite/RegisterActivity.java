@@ -70,14 +70,30 @@ public class RegisterActivity extends AppCompatActivity {
                     .addOnCompleteListener(task -> {
                         binding.progressBar.setVisibility(View.GONE);
                         if (task.isSuccessful()) {
-                            Toast.makeText(RegisterActivity.this, R.string.account_created, Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), CloudActivity.class));
-                            finish();
+                            sendVerificationEmail();
+//                            Toast.makeText(RegisterActivity.this, R.string.account_created, Toast.LENGTH_SHORT).show();
+//                            startActivity(new Intent(getApplicationContext(), CloudActivity.class));
+//                            finish();
                         } else {
                             Toast.makeText(RegisterActivity.this, R.string.authentication_failed,
                                     Toast.LENGTH_SHORT).show();
                         }
                     });
+        });
+    }
+
+    private void sendVerificationEmail() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        assert user != null;
+        user.sendEmailVerification().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                finish();
+            } else {
+                Toast.makeText(this, R.string.email_verification_sent_failed, Toast.LENGTH_SHORT).show();
+            }
         });
     }
 }
