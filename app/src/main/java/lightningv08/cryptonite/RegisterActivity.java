@@ -71,9 +71,6 @@ public class RegisterActivity extends AppCompatActivity {
                         binding.progressBar.setVisibility(View.GONE);
                         if (task.isSuccessful()) {
                             sendVerificationEmail();
-//                            Toast.makeText(RegisterActivity.this, R.string.account_created, Toast.LENGTH_SHORT).show();
-//                            startActivity(new Intent(getApplicationContext(), CloudActivity.class));
-//                            finish();
                         } else {
                             Toast.makeText(RegisterActivity.this, R.string.authentication_failed,
                                     Toast.LENGTH_SHORT).show();
