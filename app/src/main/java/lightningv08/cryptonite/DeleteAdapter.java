@@ -33,6 +33,9 @@ public class DeleteAdapter extends RecyclerView.Adapter<DeleteViewHolder> {
         holder.name.setText(deleteModels.get(position).name);
         holder.deleteButton.setOnClickListener(v -> {
             deleteFile(holder.name.getContext(), deleteModels.get(position).url);
+            deleteModels.remove(position);
+            notifyItemRemoved(position);
+            notifyItemRangeChanged(position, deleteModels.size());
         });
     }
 
