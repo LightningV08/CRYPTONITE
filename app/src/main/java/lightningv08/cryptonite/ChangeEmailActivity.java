@@ -30,14 +30,19 @@ public class ChangeEmailActivity extends AppCompatActivity {
             assert user != null;
             user.reauthenticate(EmailAuthProvider.getCredential(
                     Objects.requireNonNull(user.getEmail(), "user not logged in"), password)).addOnCompleteListener(task -> {
-                FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
-                user1.updateEmail(email).addOnCompleteListener(task1 -> {
-                    if (task.isSuccessful()) {
-                        Toast.makeText(this, R.string.successfully_changed_email, Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(this, R.string.changing_email_failed, Toast.LENGTH_SHORT).show();
-                    }
-                });
+
+                if (task.isSuccessful()) {
+                    FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
+                    user1.updateEmail(email).addOnCompleteListener(task1 -> {
+                        if (task1.isSuccessful()) {
+                            Toast.makeText(this, R.string.successfully_changed_email, Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(this, R.string.changing_email_failed, Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                } else {
+                    Toast.makeText(this, R.string.authentication_failed, Toast.LENGTH_SHORT).show();
+                }
             });
         });
     }
