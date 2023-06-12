@@ -86,6 +86,7 @@ public class RegisterActivity extends AppCompatActivity {
         user.sendEmailVerification().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 FirebaseAuth.getInstance().signOut();
+                Toast.makeText(this, R.string.email_verification_sent_success, Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                 finish();
             } else {

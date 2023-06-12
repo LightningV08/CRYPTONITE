@@ -76,4 +76,5 @@
     <string name="upload_file_to_cloud">Загрузить файл в облачное хранилище</string>
     <string name="email_not_verified">Email не подтверждён</string>
     <string name="email_verification_sent_failed">Не удалось подтвердить email</string>
+    <string name="email_verification_sent_success">Подтверждение email успешно отправлено</string>
 </resources>
