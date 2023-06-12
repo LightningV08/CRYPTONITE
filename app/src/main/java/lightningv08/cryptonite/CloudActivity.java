@@ -35,7 +35,13 @@ public class CloudActivity extends AppCompatActivity {
 
         binding.authButton.setOnClickListener(v -> startActivity(new Intent(this, LoginActivity.class)));
 
-        binding.logoutButton.setOnClickListener(v -> logout());
+        binding.manageAccountButton.setOnClickListener(v -> {
+            if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+                Toast.makeText(this, R.string.not_authorized, Toast.LENGTH_SHORT).show();
+            } else {
+                startActivity(new Intent(this, AccountManageActivity.class));
+            }
+        });
 
         binding.uploadButton.setOnClickListener(v -> {
             if (FirebaseAuth.getInstance().getCurrentUser() == null) {
@@ -106,10 +112,5 @@ public class CloudActivity extends AppCompatActivity {
                     break;
             }
         }
-    }
-
-    private void logout() {
-        FirebaseAuth.getInstance().signOut();
-        binding.userEmail.setText(R.string.not_logged_in);
     }
 }

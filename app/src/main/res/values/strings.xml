@@ -106,4 +106,13 @@
     <string name="email_not_verified">Email is not verified</string>
     <string name="email_verification_sent_failed">Email verification sent failed</string>
     <string name="email_verification_sent_success">Email verification sent successfully</string>
+    <string name="cryptonite_cloud_features_account_manage">CRYPTONITE Cloud Features Account Manage</string>
+    <string name="manage_account">Manage account</string>
+    <string name="change_email">Change email</string>
+    <string name="change_password">Change password</string>
+    <string name="delete_account_and_all_data">Delete account and all data</string>
+    <string name="change_email_example" translatable="false">new_email@gmail.com</string>
+    <string name="successfully_changed_email">Successfully changed email</string>
+    <string name="changing_email_failed">Changing email failed</string>
+    <string name="new_email">New email</string>
 </resources>

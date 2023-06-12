@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:padding="15dp"
-    tools:context=".CloudActivity">
+    tools:context=".AccountManageActivity">
 
     <LinearLayout
         android:id="@+id/linear_layout"
@@ -22,62 +22,51 @@
             android:layout_gravity="center_horizontal"
             android:fontFamily="sans-serif-medium"
             android:gravity="center_horizontal"
-            android:text="@string/cryptonite_cloud_features"
+            android:text="@string/cryptonite_cloud_features_account_manage"
             android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/auth_button"
+            android:id="@+id/change_email_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:background="@drawable/button"
-            android:text="@string/login_or_register"
+            android:text="@string/change_email"
             android:textColor="@color/white"
             android:textSize="24sp" />
 
         <Button
-            android:id="@+id/manage_account_button"
+            android:id="@+id/change_password_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="17.5dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/button"
-            android:text="@string/manage_account"
+            android:text="@string/change_password"
             android:textColor="@color/white"
             android:textSize="24sp" />
 
         <Button
-            android:id="@+id/upload_button"
+            android:id="@+id/logout_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="70dp"
             android:background="@drawable/button"
-            android:text="@string/upload"
+            android:text="@string/log_out"
             android:textColor="@color/white"
-            android:textSize="27sp" />
+            android:textSize="24sp" />
 
         <Button
-            android:id="@+id/download_button"
+            android:id="@+id/delete_account_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
             android:layout_marginTop="30dp"
             android:background="@drawable/button"
-            android:text="@string/download"
+            android:text="@string/delete_account_and_all_data"
             android:textColor="@color/white"
-            android:textSize="27sp" />
-
-        <Button
-            android:id="@+id/delete_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="50dp"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/button"
-            android:text="@string/delete_from_cloud"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="17.5sp" />
     </LinearLayout>
 
     <TextView
