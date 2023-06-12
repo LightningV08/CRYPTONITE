@@ -83,6 +83,11 @@
     <string name="change_password">Изменить пароль</string>
     <string name="delete_account_and_all_data">Удалить аккаунт и все данные</string>
     <string name="successfully_changed_email">Email успешно изменён</string>
-    <string name="changing_email_failed">Не удалось изменить email</string>
+    <string name="email_changing_failed">Не удалось изменить email</string>
     <string name="new_email">Новый email</string>
+    <string name="current_password">Текущий пароль</string>
+    <string name="new_password">Новый пароль</string>
+    <string name="confirm_new_password">Подтвердите новый пароль</string>
+    <string name="successfully_changed_password">Пароль успешно изменён</string>
+    <string name="password_changing_failed">Не удалось изменить пароль</string>
 </resources>

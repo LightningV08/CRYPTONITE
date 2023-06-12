@@ -41,6 +41,7 @@ public class AccountManageActivity extends AppCompatActivity {
             if (FirebaseAuth.getInstance().getCurrentUser() == null) {
                 Toast.makeText(this, R.string.not_authorized, Toast.LENGTH_SHORT).show();
             } else {
+                startActivity(new Intent(this, ChangePasswordActivity.class));
             }
         });
 
