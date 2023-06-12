@@ -37,7 +37,7 @@ public class ChangeEmailActivity extends AppCompatActivity {
                         if (task1.isSuccessful()) {
                             Toast.makeText(this, R.string.successfully_changed_email, Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(this, R.string.changing_email_failed, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, R.string.email_changing_failed, Toast.LENGTH_SHORT).show();
                         }
                     });
                 } else {
