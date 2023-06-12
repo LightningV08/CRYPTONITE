@@ -36,6 +36,7 @@ public class ChangeEmailActivity extends AppCompatActivity {
                     user1.updateEmail(email).addOnCompleteListener(task1 -> {
                         if (task1.isSuccessful()) {
                             Toast.makeText(this, R.string.successfully_changed_email, Toast.LENGTH_SHORT).show();
+                            finish();
                         } else {
                             Toast.makeText(this, R.string.email_changing_failed, Toast.LENGTH_SHORT).show();
                         }

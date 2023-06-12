@@ -26,6 +26,7 @@ public class AccountManageActivity extends AppCompatActivity {
                 Toast.makeText(this, R.string.not_authorized, Toast.LENGTH_SHORT).show();
             } else {
                 logout();
+                finish();
             }
         });
 

@@ -39,6 +39,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
                     user1.updatePassword(newPassword).addOnCompleteListener(task1 -> {
                         if (task1.isSuccessful()) {
                             Toast.makeText(this, R.string.successfully_changed_password, Toast.LENGTH_SHORT).show();
+                            finish();
                         } else {
                             Toast.makeText(ChangePasswordActivity.this, R.string.password_changing_failed, Toast.LENGTH_SHORT).show();
                         }
