@@ -90,4 +90,10 @@
     <string name="confirm_new_password">Подтвердите новый пароль</string>
     <string name="successfully_changed_password">Пароль успешно изменён</string>
     <string name="password_changing_failed">Не удалось изменить пароль</string>
+    <string name="delete_all_data_from_cloud">Удалить все данные из облака</string>
+    <string name="password_for_deleting">Пароль для удаления</string>
+    <string name="successfully_deleted_all_files_from_cloud">Все файлы успешно удалены из облака</string>
+    <string name="failed_deleting_all_files_from_cloud">Не удалось удапить все файлы из облака</string>
+    <string name="successfully_deleted_account">Аккаунт успешно удалён</string>
+    <string name="failed_deleting_account">Не удалось удалить аккаунт</string>
 </resources>
