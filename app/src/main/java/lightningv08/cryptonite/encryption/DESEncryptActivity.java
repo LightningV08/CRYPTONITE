@@ -17,6 +17,7 @@ import java.util.Objects;
 
 import lightningv08.cryptonite.FileUtils;
 import lightningv08.cryptonite.LoginActivity;
+import lightningv08.cryptonite.PasswordSafetyCheck;
 import lightningv08.cryptonite.R;
 import lightningv08.cryptonite.databinding.ActivityEncryptBinding;
 
@@ -26,6 +27,7 @@ public class DESEncryptActivity extends AppCompatActivity {
     private final int FILE_SELECT_CODE = 1;
     private Uri uri;
     private String password;
+    private boolean buttonClickedInRockyou = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,14 +74,28 @@ public class DESEncryptActivity extends AppCompatActivity {
                 Toast.makeText(this, R.string.passwords_dont_match, Toast.LENGTH_SHORT).show();
                 return;
             }
-            DES des = new DES(password);
-            try {
-                des.encryptFileIv(getApplicationContext(), uri);
-                Toast.makeText(this, R.string.file_encrypted, Toast.LENGTH_SHORT).show();
-                setResult(RESULT_OK, getIntent());
-            } catch (Exception e) {
-                Log.e("LightningV08", e.getMessage());
-                Toast.makeText(this, R.string.encryption_error, Toast.LENGTH_SHORT).show();
+            String checkPasswordResult = PasswordSafetyCheck.checkPassword(password, this);
+            if (checkPasswordResult.equals(getString(R.string.your_password_in_rockyou_passwords))) {
+                if (!buttonClickedInRockyou) {
+                    buttonClickedInRockyou = true;
+                    Toast.makeText(this, R.string.your_password_in_rockyou_toast, Toast.LENGTH_LONG).show();
+                    return;
+                }
+            } else {
+                buttonClickedInRockyou = false;
+            }
+            if (checkPasswordResult.isEmpty() || buttonClickedInRockyou) {
+                DES des = new DES(password);
+                try {
+                    des.encryptFileIv(getApplicationContext(), uri);
+                    Toast.makeText(this, R.string.file_encrypted, Toast.LENGTH_SHORT).show();
+                    setResult(RESULT_OK, getIntent());
+                } catch (Exception e) {
+                    Log.e("LightningV08", e.getMessage());
+                    Toast.makeText(this, R.string.encryption_error, Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(this, checkPasswordResult, Toast.LENGTH_SHORT).show();
             }
         });
     }
