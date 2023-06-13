@@ -72,6 +72,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if (!buttonClickedInRockyou) {
                     buttonClickedInRockyou = true;
                     Toast.makeText(this, R.string.your_password_in_rockyou_toast, Toast.LENGTH_LONG).show();
+                    binding.progressBar.setVisibility(View.GONE);
                     return;
                 }
             } else {
@@ -88,6 +89,10 @@ public class RegisterActivity extends AppCompatActivity {
                                         Toast.LENGTH_SHORT).show();
                             }
                         });
+            else {
+                Toast.makeText(this, checkPasswordResult, Toast.LENGTH_SHORT).show();
+                binding.progressBar.setVisibility(View.GONE);
+            }
         });
     }
 
