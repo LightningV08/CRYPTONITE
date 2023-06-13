@@ -96,7 +96,7 @@ public class RegisterActivity extends AppCompatActivity {
             });
         } else {
             Toast.makeText(this, R.string.account_created, Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+            startActivity(new Intent(RegisterActivity.this, CloudActivity.class));
             finish();
         }
     }
