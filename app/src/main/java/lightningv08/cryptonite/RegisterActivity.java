@@ -94,6 +94,10 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(this, R.string.email_verification_sent_failed, Toast.LENGTH_SHORT).show();
                 }
             });
+        } else {
+            Toast.makeText(this, R.string.account_created, Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+            finish();
         }
     }
 }
