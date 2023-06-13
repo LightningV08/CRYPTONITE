@@ -101,4 +101,11 @@
     <string name="check_password_safety">Проверить пароль</string>
     <string name="your_password_is_secure">Ваш пароль надёжен.</string>
     <string name="password_safety_check">Проверка стойкости пароля</string>
+    <string name="your_password_is_too_short">Пароль слишком короткий.</string>
+    <string name="your_password_does_not_contain_numeric_characters">Парольне сожержит цифры</string>
+    <string name="your_password_does_not_contain_lowercase_characters">Пароль не содержит строчные буквы.</string>
+    <string name="your_password_does_not_contain_uppercase_characters">Пароль не содержит заглавные буквы.</string>
+    <string name="your_password_does_not_contain_special_symbols">Пароль не содержит специальные символы (@#$%).</string>
+    <string name="your_password_in_rockyou_passwords">Пароль содержится в списке rockyou. Он может быть легко взломан атакой по списку.</string>
+    <string name="your_password_in_rockyou_toast">Ваш пароль есть в списке rockyou и небезопасен. Нажмите еще раз для продолжения с ним.</string>
 </resources>

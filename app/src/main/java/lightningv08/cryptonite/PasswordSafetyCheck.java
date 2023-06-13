@@ -11,12 +11,13 @@ public class PasswordSafetyCheck {
 
     public static final int MIN_PASSWORD_LENGTH = 8;
 
-    public static String checkPasswordLength(String password) {
-        if (password.length() < MIN_PASSWORD_LENGTH) return "Your password is too short.";
+    public static String checkPasswordLength(String password, Context context) {
+        if (password.length() < MIN_PASSWORD_LENGTH)
+            return context.getString(R.string.your_password_is_too_short);
         else return "";
     }
 
-    public static String checkPasswordLetters(String password) {
+    public static String checkPasswordLetters(String password, Context context) {
         int i;
         for (i = 0; i < password.length(); i++) {
             if (Arrays.asList('0', '1', '2', '3', '4', '5', '6', '7', '8', '9').contains(password.charAt(i))) {
@@ -24,7 +25,7 @@ public class PasswordSafetyCheck {
             }
         }
         if (i == password.length()) {
-            return "Your password does not contain numeric characters.";
+            return context.getString(R.string.your_password_does_not_contain_numeric_characters);
         }
         for (i = 0; i < password.length(); i++) {
             if (Arrays.asList('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z').contains(password.charAt(i))) {
@@ -32,7 +33,7 @@ public class PasswordSafetyCheck {
             }
         }
         if (i == password.length()) {
-            return "Your password does not contain lowercase characters.";
+            return context.getString(R.string.your_password_does_not_contain_lowercase_characters);
         }
         for (i = 0; i < password.length(); i++) {
             if (Arrays.asList('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z').contains(password.charAt(i))) {
@@ -40,7 +41,7 @@ public class PasswordSafetyCheck {
             }
         }
         if (i == password.length()) {
-            return "Your password does not contain uppercase characters.";
+            return context.getString(R.string.your_password_does_not_contain_uppercase_characters);
         }
         for (i = 0; i < password.length(); i++) {
             if (Arrays.asList('@', '#', '$', '%').contains(password.charAt(i))) {
@@ -48,7 +49,7 @@ public class PasswordSafetyCheck {
             }
         }
         if (i == password.length()) {
-            return "Your password does not contain special symbols (@#$%).";
+            return context.getString(R.string.your_password_does_not_contain_special_symbols);
         }
         return "";
     }
@@ -56,20 +57,6 @@ public class PasswordSafetyCheck {
     public static String checkPasswordInRockyou(String password, Context context) {
         BufferedReader reader;
         try {
-            /*
-            //reader = new BufferedReader(new FileReader(context.getApplicationInfo().dataDir + "/password_lists/rockyou.txt"));
-
-            //FileUtils fileUtils = new FileUtils(context);
-            //reader = new BufferedReader(new FileReader(fileUtils.getPath(Uri.fromFile(context.getFilesDir())) + "/rockyou.txt"));
-
-            //FileInputStream fileInputStream = context.openFileInput("/password_lists/rockyou.txt");
-
-            FileInputStream fileInputStream = context.openFileInput("rockyou.txt");
-
-            //FileInputStream fileInputStream = new FileInputStream(Environment.getRootDirectory() + "/password_lists/rockyou.txt");
-
-            reader = new BufferedReader(new InputStreamReader(fileInputStream));
-            */
             reader = new BufferedReader(new InputStreamReader(context.getAssets().open("rockyou.txt")));
         } catch (IOException e) {
             throw new RuntimeException("rockyou.txt not found probably", e);
@@ -84,16 +71,16 @@ public class PasswordSafetyCheck {
                 throw new RuntimeException("IOException with rockyou.txt file", e);
             }
             if (password.equals(line)) {
-                return "Your password is in rockyou passwords list. This means that in can be easily hacked via password list attack.";
+                return context.getString(R.string.your_password_in_rockyou_passwords);
             }
         }
         return "";
     }
 
     public static String checkPassword(String password, Context context) {
-        String checkPasswordLengthResult = checkPasswordLength(password);
+        String checkPasswordLengthResult = checkPasswordLength(password, context);
         if (!checkPasswordLengthResult.isEmpty()) return checkPasswordLengthResult;
-        String checkPasswordLettersResult = checkPasswordLetters(password);
+        String checkPasswordLettersResult = checkPasswordLetters(password, context);
         if (!checkPasswordLettersResult.isEmpty()) return checkPasswordLettersResult;
         String checkPasswordInRockyouResult = checkPasswordInRockyou(password, context);
         if (!checkPasswordInRockyouResult.isEmpty()) return checkPasswordInRockyouResult;

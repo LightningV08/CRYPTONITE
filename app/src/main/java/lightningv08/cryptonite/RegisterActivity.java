@@ -16,6 +16,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private ActivityRegisterBinding binding;
     private FirebaseAuth mAuth;
+    private boolean buttonClickedInRockyou = false;
 
     @Override
     protected void onStart() {
@@ -66,16 +67,27 @@ public class RegisterActivity extends AppCompatActivity {
                 binding.progressBar.setVisibility(View.GONE);
                 return;
             }
-            mAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(task -> {
-                        binding.progressBar.setVisibility(View.GONE);
-                        if (task.isSuccessful()) {
-                            sendVerificationEmail();
-                        } else {
-                            Toast.makeText(RegisterActivity.this, R.string.authentication_failed,
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    });
+            String checkPasswordResult = PasswordSafetyCheck.checkPassword(password, this);
+            if (checkPasswordResult.equals(getString(R.string.your_password_in_rockyou_passwords))) {
+                if (!buttonClickedInRockyou) {
+                    buttonClickedInRockyou = true;
+                    Toast.makeText(this, R.string.your_password_in_rockyou_toast, Toast.LENGTH_LONG).show();
+                    return;
+                }
+            } else {
+                buttonClickedInRockyou = false;
+            }
+            if (checkPasswordResult.isEmpty() || buttonClickedInRockyou)
+                mAuth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(task -> {
+                            binding.progressBar.setVisibility(View.GONE);
+                            if (task.isSuccessful()) {
+                                sendVerificationEmail();
+                            } else {
+                                Toast.makeText(RegisterActivity.this, R.string.authentication_failed,
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        });
         });
     }
 
