@@ -43,7 +43,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="40dp"
             android:fontFamily="sans-serif-medium"
-            android:text="@string/result"
+            android:text="@string/result_hash_algorithm"
             android:textColor="@color/black"
             android:textSize="25sp" />
 

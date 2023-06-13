@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         binding.cloudButton.setOnClickListener(v -> startActivity(new Intent(this, CloudActivity.class)));
+        binding.passwordSafetyCheckButton.setOnClickListener(v -> startActivity(new Intent(this, PasswordSafetyCheckActivity.class)));
     }
 
     @Override

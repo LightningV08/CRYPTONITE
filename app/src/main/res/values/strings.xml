@@ -46,7 +46,7 @@
     <string name="gost3411">GOST-34.11</string>
     <string name="select_file_to_decrypt">Select file to decrypt</string>
     <string name="type_text_to_hash">Type text to hash</string>
-    <string name="result">Result (%1$s)</string>
+    <string name="result_hash_algorithm">Result (%1$s)</string>
     <string name="hash">Hash</string>
     <string name="request_permission">Request permission</string>
     <string name="permission_not_granted">Permission not granted</string>
@@ -126,4 +126,9 @@
     <string name="failed_deleting_all_files_from_cloud">Failed deleting all files from cloud</string>
     <string name="successfully_deleted_account">Successfully deleted account</string>
     <string name="failed_deleting_account">Failed deleting account</string>
+    <string name="cryptonite_password_safety_check">CRYPTONITE Password Safety Check</string>
+    <string name="result">Result:</string>
+    <string name="check_password_safety">Check password safety</string>
+    <string name="your_password_is_secure">Your password is secure. You can safely use it.</string>
+    <string name="password_safety_check">Password safety check</string>
 </resources>

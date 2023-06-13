@@ -44,7 +44,7 @@ public class HashFileActivity extends AppCompatActivity {
         binding = ActivityHashFileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         hash_algorithm = getIntent().getStringExtra("hash_algorithm");
-        binding.hashAlgorithmName.setText(getString(R.string.result, hash_algorithm));
+        binding.hashAlgorithmName.setText(getString(R.string.result_hash_algorithm, hash_algorithm));
         binding.selectFileButton.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
             intent.addCategory(Intent.CATEGORY_OPENABLE);
