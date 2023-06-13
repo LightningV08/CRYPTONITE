@@ -85,6 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
             android:layout_marginTop="20dp"
+            android:backgroundTint="@color/button_color_middle"
             android:hint="@string/password_for_deleting"
             android:importantForAutofill="no"
             android:inputType="textPassword" />
