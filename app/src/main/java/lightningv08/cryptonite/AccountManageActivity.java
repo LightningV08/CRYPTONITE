@@ -71,6 +71,7 @@ public class AccountManageActivity extends AppCompatActivity {
                             if (task1.isSuccessful()) {
                                 logout();
                                 Toast.makeText(this, R.string.successfully_deleted_account, Toast.LENGTH_SHORT).show();
+                                finish();
                             } else {
                                 Toast.makeText(this, R.string.failed_deleting_account, Toast.LENGTH_SHORT).show();
                             }
