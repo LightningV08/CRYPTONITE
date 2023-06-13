@@ -83,15 +83,17 @@ public class RegisterActivity extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         assert user != null;
-        user.sendEmailVerification().addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                FirebaseAuth.getInstance().signOut();
-                Toast.makeText(this, R.string.email_verification_sent_success, Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
-                finish();
-            } else {
-                Toast.makeText(this, R.string.email_verification_sent_failed, Toast.LENGTH_SHORT).show();
-            }
-        });
+        if (!TestEmailsContainer.testEmails.contains(user.getEmail())) {
+            user.sendEmailVerification().addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    FirebaseAuth.getInstance().signOut();
+                    Toast.makeText(this, R.string.email_verification_sent_success, Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                    finish();
+                } else {
+                    Toast.makeText(this, R.string.email_verification_sent_failed, Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 }

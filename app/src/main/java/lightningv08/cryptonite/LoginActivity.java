@@ -74,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         assert user != null;
-        if (user.isEmailVerified()) {
+        if (user.isEmailVerified() || TestEmailsContainer.testEmails.contains(user.getEmail())) {
             Toast.makeText(this, R.string.login_successful, Toast.LENGTH_SHORT).show();
             startActivity(new Intent(getApplicationContext(), CloudActivity.class));
             finish();
