@@ -65,4 +65,8 @@ public class MainActivity extends AppCompatActivity {
             prefs.edit().putBoolean("firstrun", false).apply();
         }
     }
+
+    @Override
+    public void onBackPressed() {
+    }
 }
