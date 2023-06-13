@@ -27,7 +27,9 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/button_color_middle"
             android:hint="@string/email"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -41,7 +43,9 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/button_color_middle"
             android:hint="@string/password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -55,7 +59,9 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/button_color_middle"
             android:hint="@string/confirm_pwd"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <ProgressBar

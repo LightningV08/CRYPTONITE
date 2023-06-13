@@ -31,6 +31,7 @@
         android:importantForAutofill="no"
         android:inputType="numberDecimal"
         android:textColor="@color/black"
+        android:textCursorDrawable="@drawable/color_cursor"
         android:textSize="25sp" />
 
     <Button

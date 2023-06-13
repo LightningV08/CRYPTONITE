@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background">
@@ -57,7 +58,10 @@
             android:gravity="center_horizontal"
             android:inputType="textPassword"
             android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+            android:textColorHint="@color/black"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="20sp"
+            tools:text="password" />
 
         <TextView
             android:layout_width="match_parent"
@@ -83,7 +87,10 @@
             android:gravity="center_horizontal"
             android:inputType="textPassword"
             android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+            android:textColorHint="@color/black"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="20sp"
+            tools:text="password" />
 
         <Button
             android:id="@+id/upload_button"

@@ -33,9 +33,13 @@
             android:importantForAutofill="no"
             android:inputType="text"
             android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+            android:textColorHint="@color/black"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="20sp"
+            tools:text="CRYPTONITE" />
 
         <TextView
+            android:id="@+id/hash_algorithm_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

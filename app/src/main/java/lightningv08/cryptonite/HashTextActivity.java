@@ -36,6 +36,7 @@ public class HashTextActivity extends AppCompatActivity {
         binding = ActivityHashTextBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         String hash_algorithm = getIntent().getStringExtra("hash_algorithm");
+        binding.hashAlgorithmName.setText(getString(R.string.result, hash_algorithm));
         binding.copyButton.setOnClickListener(v -> {
             ClipboardManager clipboardManager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
             if (!Objects.equals(hash, "")) {

@@ -46,7 +46,7 @@
     <string name="gost3411">GOST-34.11</string>
     <string name="select_file_to_decrypt">Select file to decrypt</string>
     <string name="type_text_to_hash">Type text to hash</string>
-    <string name="result">Result</string>
+    <string name="result">Result (%1$s)</string>
     <string name="hash">Hash</string>
     <string name="request_permission">Request permission</string>
     <string name="permission_not_granted">Permission not granted</string>
