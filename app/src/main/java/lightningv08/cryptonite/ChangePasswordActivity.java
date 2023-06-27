@@ -41,7 +41,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
                             Toast.makeText(this, R.string.successfully_changed_password, Toast.LENGTH_SHORT).show();
                             finish();
                         } else {
-                            Toast.makeText(ChangePasswordActivity.this, R.string.password_changing_failed, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ChangePasswordActivity.this, R.string.password_change_failed, Toast.LENGTH_SHORT).show();
                         }
                     });
                 } else {
