@@ -57,9 +57,9 @@ public class PasswordSafetyCheck {
     public static String checkPasswordInRockyou(String password, Context context) {
         BufferedReader reader;
         try {
-            reader = new BufferedReader(new InputStreamReader(context.getAssets().open("rockyou.txt")));
+            reader = new BufferedReader(new InputStreamReader(context.getAssets().open("rockyou1.txt")));
         } catch (IOException e) {
-            throw new RuntimeException("rockyou.txt not found probably", e);
+            throw new RuntimeException("rockyou1.txt not found probably", e);
         }
         String line;
         while (true) {
@@ -68,7 +68,24 @@ public class PasswordSafetyCheck {
                     break;
                 }
             } catch (IOException e) {
-                throw new RuntimeException("IOException with rockyou.txt file", e);
+                throw new RuntimeException("IOException with rockyou1.txt file", e);
+            }
+            if (password.equals(line)) {
+                return context.getString(R.string.your_password_in_rockyou_passwords);
+            }
+        }
+        try {
+            reader = new BufferedReader(new InputStreamReader(context.getAssets().open("rockyou2.txt")));
+        } catch (IOException e) {
+            throw new RuntimeException("rockyou2.txt not found probably", e);
+        }
+        while (true) {
+            try {
+                if ((line = reader.readLine()) == null) {
+                    break;
+                }
+            } catch (IOException e) {
+                throw new RuntimeException("IOException with rockyou2.txt file", e);
             }
             if (password.equals(line)) {
                 return context.getString(R.string.your_password_in_rockyou_passwords);
