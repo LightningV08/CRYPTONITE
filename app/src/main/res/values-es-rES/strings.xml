@@ -108,4 +108,6 @@
     <string name="your_password_does_not_contain_special_symbols">Su contraseña no contiene símbolos especiales (@#$%).</string>
     <string name="your_password_in_rockyou_passwords">Su contraseña está en la lista de contraseñas de rockyou. Esto significa que se puede piratear fácilmente a través de un ataque de lista de contraseñas.</string>
     <string name="your_password_in_rockyou_toast">Su contraseña está en la lista de contraseñas de rockyou, por lo que no es segura. Pulse de nuevo para continuar con esta contraseña.</string>
+    <string name="settings">Configuración</string>
+    <string name="cryptonite_settings">Configuración de CRYPTONITE</string>
 </resources>

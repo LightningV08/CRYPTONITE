@@ -108,4 +108,6 @@
     <string name="your_password_in_rockyou_toast">Kata sandi ada di daftar rockyou jadi tidak aman. Tekan lagi untuk melanjutkan dengan kata sandi ini.</string>
     <string name="confirm_new_password">Konfirmasi kata sandi baru</string>
     <string name="your_password_is_too_short">Kata sandi Anda terlalu pendek.</string>
+    <string name="settings">Pengaturan</string>
+    <string name="cryptonite_settings">Pengaturan CRYPTONITE</string>
 </resources>

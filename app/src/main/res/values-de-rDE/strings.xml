@@ -108,4 +108,6 @@
     <string name="your_password_in_rockyou_toast">Das Passwort befindet sich in der Rockyou-Liste und ist daher unsicher. Drücken Sie erneut, um fortzufahren.</string>
     <string name="confirm_new_password">Bestätige neues Passwort</string>
     <string name="your_password_is_too_short">Dein Passwort ist zu kurz.</string>
+    <string name="settings">Einstellungen</string>
+    <string name="cryptonite_settings">CRYPTONITE-Einstellungen</string>
 </resources>

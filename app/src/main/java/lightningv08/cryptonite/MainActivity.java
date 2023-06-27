@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         });
         binding.cloudButton.setOnClickListener(v -> startActivity(new Intent(this, CloudActivity.class)));
         binding.passwordSafetyCheckButton.setOnClickListener(v -> startActivity(new Intent(this, PasswordSafetyCheckActivity.class)));
+        binding.settingsButton.setOnClickListener(v -> startActivity(new Intent(this, SettingsActivity.class)));
     }
 
     @Override
@@ -64,6 +65,10 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, PermissionActivity.class);
             startActivity(intent);
             prefs.edit().putBoolean("firstrun", false).apply();
+        }
+        if (prefs.getBoolean("language_changed", false)) {
+            recreate();
+            prefs.edit().putBoolean("language_changed", false).apply();
         }
     }
 

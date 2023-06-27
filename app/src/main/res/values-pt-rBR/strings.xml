@@ -108,4 +108,6 @@
     <string name="your_password_in_rockyou_toast">A senha está na lista rockyou, por isso é insegura. Pressione novamente para continuar.</string>
     <string name="confirm_new_password">Confirmar nova palavra-passe</string>
     <string name="your_password_is_too_short">Your password is too short.</string>
+    <string name="settings">Configurações</string>
+    <string name="cryptonite_settings">Configurações CRYPTONITE</string>
 </resources>

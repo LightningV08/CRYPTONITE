@@ -108,4 +108,6 @@
     <string name="your_password_does_not_contain_special_symbols">Пароль не содержит специальные символы (@#$%).</string>
     <string name="your_password_in_rockyou_passwords">Пароль содержится в списке rockyou. Он может быть легко взломан атакой по списку.</string>
     <string name="your_password_in_rockyou_toast">Ваш пароль есть в списке rockyou и небезопасен. Нажмите еще раз для продолжения с ним.</string>
+    <string name="settings">Настройки</string>
+    <string name="cryptonite_settings">Настройки CRYPTONITE</string>
 </resources>

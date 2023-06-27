@@ -138,4 +138,17 @@
     <string name="your_password_does_not_contain_special_symbols">Your password does not contain special symbols (@#$%).</string>
     <string name="your_password_in_rockyou_passwords">Your password is in rockyou passwords list. This means that it can be easily hacked via password list attack.</string>
     <string name="your_password_in_rockyou_toast">Your password is in rockyou password list so it\'s insecure. Press again to continue with this password.</string>
+    <string name="settings">Settings</string>
+    <string name="cryptonite_settings">CRYPTONITE Settings</string>
+    <string name="english" translatable="false">English</string>
+    <string name="chinese_simplified" translatable="false">Chinese (simplified)</string>
+    <string name="french" translatable="false">French</string>
+    <string name="german" translatable="false">German</string>
+    <string name="hindi" translatable="false">Hindi</string>
+    <string name="indonesian" translatable="false">Indonesian</string>
+    <string name="korean" translatable="false">Korean</string>
+    <string name="portuguese" translatable="false">Portuguese</string>
+    <string name="russian" translatable="false">Russian</string>
+    <string name="spanish" translatable="false">Spanish</string>
+    <string name="change_language" translatable="false">Change language</string>
 </resources>
