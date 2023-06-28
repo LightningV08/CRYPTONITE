@@ -28,58 +28,25 @@ public class SelectLanguageFragment extends Fragment {
         binding = FragmentSelectLanguageBinding.inflate(inflater, container, false);
         prefs = requireContext().getSharedPreferences("com.lightningv08.cryptonite", Context.MODE_PRIVATE);
 
-        binding.english.setOnClickListener(v -> {
-            Resources resources = requireContext().getResources();
-            Configuration configuration = resources.getConfiguration();
-            configuration.setToDefaults();
-            resources.updateConfiguration(configuration, resources.getDisplayMetrics());
-            prefs.edit().putBoolean("language_changed", true).apply();
-        });
+        binding.english.setOnClickListener(v -> updateResources(requireContext(), "en"));
 
-        binding.chinese.setOnClickListener(v -> {
-            updateResources(requireContext(), "zh");
-            prefs.edit().putBoolean("language_changed", true).apply();
-        });
+        binding.chinese.setOnClickListener(v -> updateResources(requireContext(), "zh"));
 
-        binding.french.setOnClickListener(v -> {
-            updateResources(requireContext(), "fr");
-            prefs.edit().putBoolean("language_changed", true).apply();
-        });
+        binding.french.setOnClickListener(v -> updateResources(requireContext(), "fr"));
 
-        binding.german.setOnClickListener(v -> {
-            updateResources(requireContext(), "de");
-            prefs.edit().putBoolean("language_changed", true).apply();
-        });
+        binding.german.setOnClickListener(v -> updateResources(requireContext(), "de"));
 
-        binding.hindi.setOnClickListener(v -> {
-            updateResources(requireContext(), "hi");
-            prefs.edit().putBoolean("language_changed", true).apply();
-        });
+        binding.hindi.setOnClickListener(v -> updateResources(requireContext(), "hi"));
 
-        binding.indonesian.setOnClickListener(v -> {
-            updateResources(requireContext(), "in");
-            prefs.edit().putBoolean("language_changed", true).apply();
-        });
+        binding.indonesian.setOnClickListener(v -> updateResources(requireContext(), "in"));
 
-        binding.korean.setOnClickListener(v -> {
-            updateResources(requireContext(), "ko");
-            prefs.edit().putBoolean("language_changed", true).apply();
-        });
+        binding.korean.setOnClickListener(v -> updateResources(requireContext(), "ko"));
 
-        binding.portuguese.setOnClickListener(v -> {
-            updateResources(requireContext(), "pt");
-            prefs.edit().putBoolean("language_changed", true).apply();
-        });
+        binding.portuguese.setOnClickListener(v -> updateResources(requireContext(), "pt"));
 
-        binding.russian.setOnClickListener(v -> {
-            updateResources(requireContext(), "ru");
-            prefs.edit().putBoolean("language_changed", true).apply();
-        });
+        binding.russian.setOnClickListener(v -> updateResources(requireContext(), "ru"));
 
-        binding.spanish.setOnClickListener(v -> {
-            updateResources(requireContext(), "es");
-            prefs.edit().putBoolean("language_changed", true).apply();
-        });
+        binding.spanish.setOnClickListener(v -> updateResources(requireContext(), "es"));
 
         return binding.getRoot();
     }
@@ -96,6 +63,9 @@ public class SelectLanguageFragment extends Fragment {
         Configuration configuration = resources.getConfiguration();
         configuration.setLocale(locale);
         resources.updateConfiguration(configuration, resources.getDisplayMetrics());
+        prefs.edit().putString("language", language).apply();
+        prefs.edit().putBoolean("language_changed", true).apply();
+        prefs.edit().putBoolean("was_recreated", false).apply();
         requireActivity().recreate();
     }
 }
