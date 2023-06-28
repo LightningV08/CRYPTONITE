@@ -110,6 +110,15 @@
             android:name=".PermissionActivity"
             android:exported="false" />
         <activity
+            android:name=".ChooseCryptTypeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".encryption.AESEncryptActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChooseHashActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -117,31 +126,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".ChooseCryptTypeActivity"
-            android:exported="true">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".encryption.AESEncryptActivity"
-            android:exported="true">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".ChooseHashActivity"
-            android:exported="true">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
         </activity>
     </application>
 
