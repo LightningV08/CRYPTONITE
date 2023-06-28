@@ -28,11 +28,12 @@
 
         <ImageButton
             android:id="@+id/settings_button"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_gravity="end"
-            android:layout_marginStart="25dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="30dp"
             android:adjustViewBounds="true"
+            android:background="@color/background"
             android:contentDescription="@string/settings"
             android:scaleType="fitCenter"
             android:src="@drawable/settings_button" />
