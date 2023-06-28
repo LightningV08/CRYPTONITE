@@ -105,7 +105,7 @@
     <string name="your_password_does_not_contain_numeric_characters">您的密码不包含数字字符。</string>
     <string name="your_password_does_not_contain_lowercase_characters">您的密码不包含小写字符。</string>
     <string name="your_password_does_not_contain_uppercase_characters">您的密码不包含大写字符。</string>
-    <string name="your_password_does_not_contain_special_symbols">您的密码不包含特殊符号 （@#$%）。</string>
+    <string name="your_password_does_not_contain_special_symbols">您的密码不包含特殊符号 （_!@#$%）。</string>
     <string name="your_password_in_rockyou_passwords">您的密码在摇滚密码列表中。这意味着它可以通过密码列表攻击轻松被黑客入侵。</string>
     <string name="your_password_in_rockyou_toast">您的密码在摇滚密码列表中，因此不安全。再次按下以继续使用此密码。</string>
     <string name="settings">设置</string>

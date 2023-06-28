@@ -135,7 +135,7 @@
     <string name="your_password_does_not_contain_numeric_characters">Your password does not contain numeric characters.</string>
     <string name="your_password_does_not_contain_lowercase_characters">Your password does not contain lowercase characters.</string>
     <string name="your_password_does_not_contain_uppercase_characters">Your password does not contain uppercase characters.</string>
-    <string name="your_password_does_not_contain_special_symbols">Your password does not contain special symbols (@#$%).</string>
+    <string name="your_password_does_not_contain_special_symbols">Your password does not contain special symbols (_!@#$%).</string>
     <string name="your_password_in_rockyou_passwords">Your password is in rockyou passwords list. This means that it can be easily hacked via password list attack.</string>
     <string name="your_password_in_rockyou_toast">Your password is in rockyou password list so it\'s insecure. Press again to continue with this password.</string>
     <string name="settings">Settings</string>

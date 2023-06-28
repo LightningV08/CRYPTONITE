@@ -105,7 +105,7 @@
     <string name="your_password_does_not_contain_numeric_characters">आपके पासवर्ड में सांख्यिक वर्ण नहीं हैं.</string>
     <string name="your_password_does_not_contain_lowercase_characters">आपके पासवर्ड में लोअरकेस वर्ण नहीं हैं.</string>
     <string name="your_password_does_not_contain_uppercase_characters">आपके पासवर्ड में अपरकेस वर्ण नहीं हैं.</string>
-    <string name="your_password_does_not_contain_special_symbols">आपके पासवर्ड में विशेष प्रतीक (@%) नहीं हैं।</string>
+    <string name="your_password_does_not_contain_special_symbols">आपके पासवर्ड में विशेष प्रतीक (_!@#$%) नहीं हैं।</string>
     <string name="your_password_in_rockyou_passwords">पासवर्ड रॉकयू सूची में है. इसे पासवर्ड लिस्ट अटैक के जरिए हैक किया जा सकता है।</string>
     <string name="your_password_in_rockyou_toast">पासवर्ड रॉकयू सूची में है इसलिए यह असुरक्षित है। इस पासवर्ड को जारी रखने के लिए फिर से दबाएँ।</string>
     <string name="settings">सेटिंग्स</string>

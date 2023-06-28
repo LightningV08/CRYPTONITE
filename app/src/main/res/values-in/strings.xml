@@ -103,7 +103,7 @@
     <string name="your_password_does_not_contain_numeric_characters">Kata sandi Anda tidak mengandung karakter numerik.</string>
     <string name="your_password_does_not_contain_lowercase_characters">Kata sandi Anda tidak mengandung karakter huruf kecil.</string>
     <string name="your_password_does_not_contain_uppercase_characters">Kata sandi Anda tidak mengandung karakter huruf besar.</string>
-    <string name="your_password_does_not_contain_special_symbols">Kata sandi Anda tidak mengandung simbol khusus (@#$%).</string>
+    <string name="your_password_does_not_contain_special_symbols">Kata sandi Anda tidak mengandung simbol khusus (_!@#$%).</string>
     <string name="your_password_in_rockyou_passwords">Kata sandi ada di daftar rockyou. Ini berarti dapat diretas melalui serangan daftar kata sandi.</string>
     <string name="your_password_in_rockyou_toast">Kata sandi ada di daftar rockyou jadi tidak aman. Tekan lagi untuk melanjutkan dengan kata sandi ini.</string>
     <string name="confirm_new_password">Konfirmasi kata sandi baru</string>

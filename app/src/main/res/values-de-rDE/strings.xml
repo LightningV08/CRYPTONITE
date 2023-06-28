@@ -103,7 +103,7 @@
     <string name="your_password_does_not_contain_numeric_characters">Ihr Passwort enthält keine numerischen Zeichen.</string>
     <string name="your_password_does_not_contain_lowercase_characters">Ihr Passwort enthält keine Kleinbuchstaben.</string>
     <string name="your_password_does_not_contain_uppercase_characters">Ihr Passwort enthält keine Großbuchstaben.</string>
-    <string name="your_password_does_not_contain_special_symbols">Ihr Passwort enthält keine Sonderzeichen (@#$%).</string>
+    <string name="your_password_does_not_contain_special_symbols">Ihr Passwort enthält keine Sonderzeichen (_!@#$%).</string>
     <string name="your_password_in_rockyou_passwords">Ihr Passwort befindet sich in der Rockyou-Passwortliste. Dies bedeutet, dass es durch einen Passwortlistenangriff leicht gehackt werden kann.</string>
     <string name="your_password_in_rockyou_toast">Das Passwort befindet sich in der Rockyou-Liste und ist daher unsicher. Drücken Sie erneut, um fortzufahren.</string>
     <string name="confirm_new_password">Bestätige neues Passwort</string>

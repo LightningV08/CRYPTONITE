@@ -44,7 +44,7 @@ public class PasswordSafetyCheck {
             return context.getString(R.string.your_password_does_not_contain_uppercase_characters);
         }
         for (i = 0; i < password.length(); i++) {
-            if (Arrays.asList('@', '#', '$', '%').contains(password.charAt(i))) {
+            if (Arrays.asList('_', '!', '@', '#', '$', '%').contains(password.charAt(i))) {
                 break;
             }
         }

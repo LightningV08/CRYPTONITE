@@ -104,7 +104,7 @@
     <string name="your_password_does_not_contain_numeric_characters">비밀번호에 숫자가 포함되어 있지 않습니다.</string>
     <string name="your_password_does_not_contain_lowercase_characters">비밀번호에 소문자가 포함되어 있지 않습니다.</string>
     <string name="your_password_does_not_contain_uppercase_characters">비밀번호에 대문자가 포함되어 있지 않습니다.</string>
-    <string name="your_password_does_not_contain_special_symbols">비밀번호에 특수 기호(\@#$%)가 포함되어 있지 않습니다.</string>
+    <string name="your_password_does_not_contain_special_symbols">비밀번호에 특수 기호(\\_!@#$%)가 포함되어 있지 않습니다.</string>
     <string name="your_password_in_rockyou_passwords">귀하의 비밀번호는 rockyou 비밀번호 목록에 있습니다. 이는 비밀번호 목록 공격을 통해 쉽게 해킹당할 수 있음을 의미합니다.</string>
     <string name="your_password_in_rockyou_toast">귀하의 비밀번호는 rockyou 비밀번호 목록에 있으므로 안전하지 않습니다. 이 암호로 계속하려면 다시 누르십시오.</string>
     <string name="settings">설정</string>

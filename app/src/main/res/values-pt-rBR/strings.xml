@@ -103,7 +103,7 @@
     <string name="your_password_does_not_contain_numeric_characters">A sua palavra-passe não contém carateres numéricos.</string>
     <string name="your_password_does_not_contain_lowercase_characters">A sua palavra-passe não contém caracteres minúsculos.</string>
     <string name="your_password_does_not_contain_uppercase_characters">A sua palavra-passe não contém caracteres maiúsculos.</string>
-    <string name="your_password_does_not_contain_special_symbols">A sua palavra-passe não contém símbolos especiais (@%).</string>
+    <string name="your_password_does_not_contain_special_symbols">A sua palavra-passe não contém símbolos especiais (_!@#$%).</string>
     <string name="your_password_in_rockyou_passwords">Sua senha está na lista de senhas rockyou. Isso significa que em pode ser facilmente hackeado através de ataque de lista de senhas.</string>
     <string name="your_password_in_rockyou_toast">A senha está na lista rockyou, por isso é insegura. Pressione novamente para continuar.</string>
     <string name="confirm_new_password">Confirmar nova palavra-passe</string>
