@@ -10,6 +10,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import lightningv08.cryptonite.databinding.ActivityPermissionBinding;
+import lightningv08.cryptonite.utils.PermissionUtils;
 
 public class PermissionActivity extends AppCompatActivity {
     private ActivityPermissionBinding binding;

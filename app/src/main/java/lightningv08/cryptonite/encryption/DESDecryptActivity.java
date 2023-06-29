@@ -23,8 +23,8 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
-import lightningv08.cryptonite.AsyncExecutor;
-import lightningv08.cryptonite.FileUtils;
+import lightningv08.cryptonite.utils.AsyncExecutor;
+import lightningv08.cryptonite.utils.FileUtils;
 import lightningv08.cryptonite.R;
 import lightningv08.cryptonite.cloud.LoginActivity;
 import lightningv08.cryptonite.databinding.ActivityDecryptBinding;

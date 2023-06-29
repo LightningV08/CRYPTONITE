@@ -1,4 +1,4 @@
-package lightningv08.cryptonite;
+package lightningv08.cryptonite.utils;
 
 import android.annotation.SuppressLint;
 import android.content.ContentUris;

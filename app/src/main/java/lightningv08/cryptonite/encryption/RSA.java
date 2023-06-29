@@ -27,7 +27,7 @@ import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
-import lightningv08.cryptonite.FileUtils;
+import lightningv08.cryptonite.utils.FileUtils;
 
 public class RSA {
 

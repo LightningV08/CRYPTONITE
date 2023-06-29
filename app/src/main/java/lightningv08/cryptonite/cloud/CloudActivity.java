@@ -15,7 +15,7 @@ import com.google.firebase.storage.UploadTask;
 import java.io.File;
 import java.util.Objects;
 
-import lightningv08.cryptonite.FileUtils;
+import lightningv08.cryptonite.utils.FileUtils;
 import lightningv08.cryptonite.MainActivity;
 import lightningv08.cryptonite.R;
 import lightningv08.cryptonite.cloud.delete.DeleteActivity;
