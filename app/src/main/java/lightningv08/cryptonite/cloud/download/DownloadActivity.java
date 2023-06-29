@@ -21,8 +21,6 @@ public class DownloadActivity extends AppCompatActivity {
     private ActivityDownloadBinding binding;
     private final ArrayList<DownloadModel> downloadModels = new ArrayList<>();
 
-    private final DownloadAdapter adapter = new DownloadAdapter(downloadModels);
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,8 +43,9 @@ public class DownloadActivity extends AppCompatActivity {
                 fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
                     downloadModels.add(new DownloadModel(uri.getLastPathSegment().split("/")[1], uri.toString()));
                 }).addOnSuccessListener(uri -> {
+                    downloadModels.sort((o1, o2) -> o1.name.compareToIgnoreCase(o2.name));
                     binding.recycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-                    binding.recycler.setAdapter(adapter);
+                    binding.recycler.setAdapter(new DownloadAdapter(downloadModels));
                     binding.progressBar.setVisibility(View.GONE);
                 });
             }

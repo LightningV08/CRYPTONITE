@@ -43,6 +43,7 @@ public class DeleteActivity extends AppCompatActivity {
                 fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
                     deleteModels.add(new DownloadModel(uri.getLastPathSegment().split("/")[1], uri.toString()));
                 }).addOnSuccessListener(uri -> {
+                    deleteModels.sort((o1, o2) -> o1.name.compareToIgnoreCase(o2.name));
                     binding.recycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
                     binding.recycler.setAdapter(new DeleteAdapter(deleteModels));
                     binding.progressBar.setVisibility(View.GONE);
