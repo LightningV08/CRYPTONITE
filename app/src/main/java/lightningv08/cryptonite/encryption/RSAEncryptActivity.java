@@ -3,7 +3,6 @@ package lightningv08.cryptonite.encryption;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,8 +13,17 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.File;
+import java.io.IOException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.Objects;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+
+import lightningv08.cryptonite.AsyncExecutor;
 import lightningv08.cryptonite.FileUtils;
 import lightningv08.cryptonite.R;
 import lightningv08.cryptonite.cloud.LoginActivity;
@@ -36,6 +44,8 @@ public class RSAEncryptActivity extends AppCompatActivity {
     private boolean keySizeFragmentOpened = false;
 
     private Fragment chooseKeySizeFragment;
+
+    private final AsyncExecutor executor = new AsyncExecutor();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,14 +111,33 @@ public class RSAEncryptActivity extends AppCompatActivity {
                 Toast.makeText(this, R.string.choose_key_file, Toast.LENGTH_SHORT).show();
                 return;
             }
-            try {
-                RSA.encryptFileIv(getApplicationContext(), fileUri, RSA.getPublicKeyFromKeyFile(getApplicationContext(), keyUri));
-                Toast.makeText(this, R.string.file_encrypted, Toast.LENGTH_SHORT).show();
-                setResult(RESULT_OK, getIntent());
-            } catch (Exception e) {
-                Log.e("LightningV08", e.getMessage());
-                Toast.makeText(this, R.string.encryption_error, Toast.LENGTH_SHORT).show();
-            }
+            executor.execute(new AsyncExecutor.AsyncExecutable() {
+                private boolean finished = false;
+                private boolean success = true;
+
+                @Override
+                public void doInBackground() {
+                    try {
+                        RSA.encryptFileIv(getApplicationContext(), fileUri, RSA.getPublicKeyFromKeyFile(getApplicationContext(), keyUri));
+                    } catch (IOException | NoSuchPaddingException | IllegalBlockSizeException |
+                             NoSuchAlgorithmException | BadPaddingException | InvalidKeyException |
+                             InvalidKeySpecException e) {
+                        success = false;
+                    }
+                    finished = true;
+                }
+
+                @Override
+                public void doInUIThread() {
+                    if (finished) {
+                        if (success) {
+                            Toast.makeText(RSAEncryptActivity.this, R.string.file_encrypted, Toast.LENGTH_SHORT).show();
+                            setResult(RESULT_OK, getIntent());
+                        } else
+                            Toast.makeText(RSAEncryptActivity.this, R.string.encryption_error, Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
         });
     }
 

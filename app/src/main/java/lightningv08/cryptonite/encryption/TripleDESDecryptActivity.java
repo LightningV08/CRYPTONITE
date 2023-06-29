@@ -3,7 +3,6 @@ package lightningv08.cryptonite.encryption;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,8 +12,18 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.File;
+import java.io.IOException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import java.util.Objects;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+
+import lightningv08.cryptonite.AsyncExecutor;
 import lightningv08.cryptonite.FileUtils;
 import lightningv08.cryptonite.R;
 import lightningv08.cryptonite.cloud.LoginActivity;
@@ -26,6 +35,8 @@ public class TripleDESDecryptActivity extends AppCompatActivity {
     private final int FILE_SELECT_CODE = 1;
     private Uri uri;
     private String password;
+
+    private final AsyncExecutor executor = new AsyncExecutor();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,15 +83,35 @@ public class TripleDESDecryptActivity extends AppCompatActivity {
                 Toast.makeText(this, R.string.passwords_dont_match, Toast.LENGTH_SHORT).show();
                 return;
             }
-            TripleDES tripleDES = new TripleDES(password);
-            try {
-                tripleDES.decryptFileIv(getApplicationContext(), uri);
-                Toast.makeText(this, R.string.file_decrypted, Toast.LENGTH_SHORT).show();
-                setResult(RESULT_OK, getIntent());
-            } catch (Exception e) {
-                Log.e("LightningV08", e.toString());
-                Toast.makeText(this, R.string.decryption_error, Toast.LENGTH_SHORT).show();
-            }
+            executor.execute(new AsyncExecutor.AsyncExecutable() {
+                private boolean finished = false;
+                private boolean success = true;
+
+                @Override
+                public void doInBackground() {
+                    TripleDES tripleDES = new TripleDES(password);
+                    try {
+                        tripleDES.decryptFileIv(getApplicationContext(), uri);
+                    } catch (IOException | InvalidAlgorithmParameterException |
+                             NoSuchPaddingException | IllegalBlockSizeException |
+                             NoSuchAlgorithmException | BadPaddingException | InvalidKeyException |
+                             NoSuchProviderException e) {
+                        success = false;
+                    }
+                    finished = true;
+                }
+
+                @Override
+                public void doInUIThread() {
+                    if (finished) {
+                        if (success) {
+                            Toast.makeText(TripleDESDecryptActivity.this, R.string.file_decrypted, Toast.LENGTH_SHORT).show();
+                            setResult(RESULT_OK, getIntent());
+                        } else
+                            Toast.makeText(TripleDESDecryptActivity.this, R.string.decryption_error, Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
         });
     }
 
