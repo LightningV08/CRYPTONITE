@@ -1,4 +1,4 @@
-package lightningv08.cryptonite;
+package lightningv08.cryptonite.cloud.download;
 
 public class DownloadModel {
     public String name;

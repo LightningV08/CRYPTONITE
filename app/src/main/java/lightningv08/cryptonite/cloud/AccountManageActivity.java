@@ -1,4 +1,4 @@
-package lightningv08.cryptonite;
+package lightningv08.cryptonite.cloud;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +15,7 @@ import com.google.firebase.storage.StorageReference;
 import java.util.List;
 import java.util.Objects;
 
+import lightningv08.cryptonite.R;
 import lightningv08.cryptonite.databinding.ActivityAccountManageBinding;
 
 public class AccountManageActivity extends AppCompatActivity {

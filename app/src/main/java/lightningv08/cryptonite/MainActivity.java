@@ -13,7 +13,12 @@ import androidx.fragment.app.Fragment;
 import java.security.Security;
 import java.util.Locale;
 
+import lightningv08.cryptonite.cloud.CloudActivity;
 import lightningv08.cryptonite.databinding.ActivityMainBinding;
+import lightningv08.cryptonite.encryption.ChooseCryptTypeActivity;
+import lightningv08.cryptonite.hash.ChooseHashInputFragment;
+import lightningv08.cryptonite.passwordcheck.PasswordSafetyCheckActivity;
+import lightningv08.cryptonite.settings.SettingsActivity;
 
 public class MainActivity extends AppCompatActivity {
 

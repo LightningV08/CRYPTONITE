@@ -1,4 +1,4 @@
-package lightningv08.cryptonite;
+package lightningv08.cryptonite.hash;
 
 import android.content.Intent;
 import android.os.Bundle;

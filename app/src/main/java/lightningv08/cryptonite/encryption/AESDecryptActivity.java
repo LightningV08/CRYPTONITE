@@ -16,8 +16,8 @@ import java.io.File;
 import java.util.Objects;
 
 import lightningv08.cryptonite.FileUtils;
-import lightningv08.cryptonite.LoginActivity;
 import lightningv08.cryptonite.R;
+import lightningv08.cryptonite.cloud.LoginActivity;
 import lightningv08.cryptonite.databinding.ActivityDecryptBinding;
 
 public class AESDecryptActivity extends AppCompatActivity {
@@ -72,15 +72,19 @@ public class AESDecryptActivity extends AppCompatActivity {
                 Toast.makeText(this, R.string.passwords_dont_match, Toast.LENGTH_SHORT).show();
                 return;
             }
-            AES aes = new AES(password);
-            try {
-                aes.decryptFileIv(getApplicationContext(), uri);
-                Toast.makeText(this, R.string.file_decrypted, Toast.LENGTH_SHORT).show();
-                setResult(RESULT_OK, getIntent());
-            } catch (Exception e) {
-                Log.e("LightningV08", e.toString());
-                Toast.makeText(this, R.string.decryption_error, Toast.LENGTH_SHORT).show();
-            }
+            new Thread(() -> {
+                AES aes = new AES(password);
+                try {
+                    aes.decryptFileIv(getApplicationContext(), uri);
+                    runOnUiThread(() -> {
+                        Toast.makeText(AESDecryptActivity.this, R.string.file_decrypted, Toast.LENGTH_SHORT).show();
+                        setResult(RESULT_OK, getIntent());
+                    });
+                } catch (Exception e) {
+                    Log.e("LightningV08", e.toString());
+                    runOnUiThread(() -> Toast.makeText(AESDecryptActivity.this, R.string.decryption_error, Toast.LENGTH_SHORT).show());
+                }
+            }).start();
         });
     }
 

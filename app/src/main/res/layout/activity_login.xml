@@ -6,7 +6,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context=".LoginActivity">
+    tools:context=".cloud.LoginActivity">
 
     <TextView
         android:layout_width="match_parent"

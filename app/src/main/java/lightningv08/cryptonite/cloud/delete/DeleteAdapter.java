@@ -1,4 +1,4 @@
-package lightningv08.cryptonite;
+package lightningv08.cryptonite.cloud.delete;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,6 +12,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
+
+import lightningv08.cryptonite.R;
+import lightningv08.cryptonite.cloud.download.DownloadModel;
 
 public class DeleteAdapter extends RecyclerView.Adapter<DeleteViewHolder> {
 

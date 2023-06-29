@@ -1,4 +1,4 @@
-package lightningv08.cryptonite;
+package lightningv08.cryptonite.cloud.delete;
 
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import lightningv08.cryptonite.cloud.download.DownloadModel;
 import lightningv08.cryptonite.databinding.ActivityDeleteBinding;
 
 public class DeleteActivity extends AppCompatActivity {

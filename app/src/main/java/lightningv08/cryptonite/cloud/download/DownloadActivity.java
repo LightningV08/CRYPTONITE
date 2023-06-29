@@ -1,4 +1,4 @@
-package lightningv08.cryptonite;
+package lightningv08.cryptonite.cloud.download;
 
 import android.os.Bundle;
 import android.view.View;

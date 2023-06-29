@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:padding="15dp"
-    tools:context=".CloudActivity">
+    tools:context=".cloud.CloudActivity">
 
     <LinearLayout
         android:id="@+id/linear_layout"

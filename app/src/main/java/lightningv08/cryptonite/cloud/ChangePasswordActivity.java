@@ -1,4 +1,4 @@
-package lightningv08.cryptonite;
+package lightningv08.cryptonite.cloud;
 
 import android.os.Bundle;
 import android.widget.Toast;
@@ -11,6 +11,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Objects;
 
+import lightningv08.cryptonite.R;
 import lightningv08.cryptonite.databinding.ActivityChangePasswordBinding;
 
 public class ChangePasswordActivity extends AppCompatActivity {

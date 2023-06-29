@@ -1,4 +1,4 @@
-package lightningv08.cryptonite;
+package lightningv08.cryptonite.cloud;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import lightningv08.cryptonite.passwordcheck.PasswordSafetyCheck;
+import lightningv08.cryptonite.R;
 import lightningv08.cryptonite.databinding.ActivityRegisterBinding;
 
 public class RegisterActivity extends AppCompatActivity {

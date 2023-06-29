@@ -1,4 +1,4 @@
-package lightningv08.cryptonite;
+package lightningv08.cryptonite.settings;
 
 import android.content.Context;
 import android.content.SharedPreferences;

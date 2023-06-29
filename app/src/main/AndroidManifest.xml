@@ -26,34 +26,34 @@
         android:theme="@style/Theme.Cryptonite"
         tools:targetApi="31">
         <activity
-            android:name=".SettingsActivity"
+            android:name=".settings.SettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".PasswordSafetyCheckActivity"
+            android:name=".passwordcheck.PasswordSafetyCheckActivity"
             android:exported="false" />
         <activity
-            android:name=".ChangePasswordActivity"
+            android:name=".cloud.ChangePasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".ChangeEmailActivity"
+            android:name=".cloud.ChangeEmailActivity"
             android:exported="false" />
         <activity
-            android:name=".AccountManageActivity"
+            android:name=".cloud.AccountManageActivity"
             android:exported="false" />
         <activity
-            android:name=".DeleteActivity"
+            android:name=".cloud.delete.DeleteActivity"
             android:exported="false" />
         <activity
-            android:name=".DownloadActivity"
+            android:name=".cloud.download.DownloadActivity"
             android:exported="false" />
         <activity
-            android:name=".CloudActivity"
+            android:name=".cloud.CloudActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".cloud.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".cloud.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".encryption.RSADecryptActivity"
@@ -98,10 +98,10 @@
             android:name=".encryption.DESEncryptActivity"
             android:exported="false" />
         <activity
-            android:name=".HashFileActivity"
+            android:name=".hash.HashFileActivity"
             android:exported="false" />
         <activity
-            android:name=".HashTextActivity"
+            android:name=".hash.HashTextActivity"
             android:exported="false" />
         <activity
             android:name=".encryption.AESDecryptActivity"
@@ -110,13 +110,13 @@
             android:name=".PermissionActivity"
             android:exported="false" />
         <activity
-            android:name=".ChooseCryptTypeActivity"
+            android:name=".encryption.ChooseCryptTypeActivity"
             android:exported="false" />
         <activity
             android:name=".encryption.AESEncryptActivity"
             android:exported="false" />
         <activity
-            android:name=".ChooseHashActivity"
+            android:name=".hash.ChooseHashActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

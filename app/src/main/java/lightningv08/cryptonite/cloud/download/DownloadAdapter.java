@@ -1,4 +1,4 @@
-package lightningv08.cryptonite;
+package lightningv08.cryptonite.cloud.download;
 
 import android.app.DownloadManager;
 import android.content.Context;
@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+
+import lightningv08.cryptonite.R;
 
 public class DownloadAdapter extends RecyclerView.Adapter<DownloadViewHolder> {
 

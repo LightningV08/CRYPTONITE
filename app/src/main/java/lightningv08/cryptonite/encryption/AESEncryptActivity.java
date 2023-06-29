@@ -16,8 +16,8 @@ import java.io.File;
 import java.util.Objects;
 
 import lightningv08.cryptonite.FileUtils;
-import lightningv08.cryptonite.LoginActivity;
-import lightningv08.cryptonite.PasswordSafetyCheck;
+import lightningv08.cryptonite.cloud.LoginActivity;
+import lightningv08.cryptonite.passwordcheck.PasswordSafetyCheck;
 import lightningv08.cryptonite.R;
 import lightningv08.cryptonite.databinding.ActivityEncryptBinding;
 
@@ -85,15 +85,19 @@ public class AESEncryptActivity extends AppCompatActivity {
                 buttonClickedInRockyou = false;
             }
             if (checkPasswordResult.isEmpty() || buttonClickedInRockyou) {
-                AES aes = new AES(password);
-                try {
-                    aes.encryptFileIv(getApplicationContext(), uri);
-                    Toast.makeText(this, R.string.file_encrypted, Toast.LENGTH_SHORT).show();
-                    setResult(RESULT_OK, getIntent());
-                } catch (Exception e) {
-                    Log.e("LightningV08", e.getMessage());
-                    Toast.makeText(this, R.string.encryption_error, Toast.LENGTH_SHORT).show();
-                }
+                new Thread(() -> {
+                    AES aes = new AES(password);
+                    try {
+                        aes.encryptFileIv(getApplicationContext(), uri);
+                        runOnUiThread(() -> {
+                            Toast.makeText(AESEncryptActivity.this, R.string.file_encrypted, Toast.LENGTH_SHORT).show();
+                            setResult(RESULT_OK, getIntent());
+                        });
+                    } catch (Exception e) {
+                        Log.e("LightningV08", e.getMessage());
+                        runOnUiThread(() -> Toast.makeText(AESEncryptActivity.this, R.string.encryption_error, Toast.LENGTH_SHORT).show());
+                    }
+                }).start();
             } else {
                 Toast.makeText(this, checkPasswordResult, Toast.LENGTH_SHORT).show();
             }

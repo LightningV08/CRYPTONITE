@@ -1,4 +1,4 @@
-package lightningv08.cryptonite;
+package lightningv08.cryptonite.encryption;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,22 +6,6 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import lightningv08.cryptonite.databinding.ChooseCryptTypeBinding;
-import lightningv08.cryptonite.encryption.AESDecryptActivity;
-import lightningv08.cryptonite.encryption.AESEncryptActivity;
-import lightningv08.cryptonite.encryption.BlowfishDecryptActivity;
-import lightningv08.cryptonite.encryption.BlowfishEncryptActivity;
-import lightningv08.cryptonite.encryption.DESDecryptActivity;
-import lightningv08.cryptonite.encryption.DESEncryptActivity;
-import lightningv08.cryptonite.encryption.GOSTDecryptActivity;
-import lightningv08.cryptonite.encryption.GOSTEncryptActivity;
-import lightningv08.cryptonite.encryption.RC4DecryptActivity;
-import lightningv08.cryptonite.encryption.RC4EncryptActivity;
-import lightningv08.cryptonite.encryption.RSADecryptActivity;
-import lightningv08.cryptonite.encryption.RSAEncryptActivity;
-import lightningv08.cryptonite.encryption.TripleDESDecryptActivity;
-import lightningv08.cryptonite.encryption.TripleDESEncryptActivity;
-import lightningv08.cryptonite.encryption.TwofishDecryptActivity;
-import lightningv08.cryptonite.encryption.TwofishEncryptActivity;
 
 public class ChooseCryptTypeActivity extends AppCompatActivity {
 

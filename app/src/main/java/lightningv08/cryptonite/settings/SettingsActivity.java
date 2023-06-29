@@ -1,10 +1,11 @@
-package lightningv08.cryptonite;
+package lightningv08.cryptonite.settings;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import lightningv08.cryptonite.R;
 import lightningv08.cryptonite.databinding.ActivitySettingsBinding;
 
 public class SettingsActivity extends AppCompatActivity {

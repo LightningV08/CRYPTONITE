@@ -16,7 +16,7 @@ import java.io.File;
 import java.util.Objects;
 
 import lightningv08.cryptonite.FileUtils;
-import lightningv08.cryptonite.LoginActivity;
+import lightningv08.cryptonite.cloud.LoginActivity;
 import lightningv08.cryptonite.R;
 import lightningv08.cryptonite.databinding.ActivityDecryptBinding;
 

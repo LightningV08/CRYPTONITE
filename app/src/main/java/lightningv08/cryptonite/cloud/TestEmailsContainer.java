@@ -1,4 +1,4 @@
-package lightningv08.cryptonite;
+package lightningv08.cryptonite.cloud;
 
 import java.util.Arrays;
 import java.util.List;

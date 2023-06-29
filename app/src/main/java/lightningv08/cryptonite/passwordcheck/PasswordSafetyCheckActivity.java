@@ -1,10 +1,11 @@
-package lightningv08.cryptonite;
+package lightningv08.cryptonite.passwordcheck;
 
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import lightningv08.cryptonite.R;
 import lightningv08.cryptonite.databinding.ActivityPasswordSafetyCheckBinding;
 
 public class PasswordSafetyCheckActivity extends AppCompatActivity {

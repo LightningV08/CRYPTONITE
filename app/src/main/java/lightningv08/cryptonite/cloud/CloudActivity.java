@@ -1,4 +1,4 @@
-package lightningv08.cryptonite;
+package lightningv08.cryptonite.cloud;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -15,6 +15,11 @@ import com.google.firebase.storage.UploadTask;
 import java.io.File;
 import java.util.Objects;
 
+import lightningv08.cryptonite.FileUtils;
+import lightningv08.cryptonite.MainActivity;
+import lightningv08.cryptonite.R;
+import lightningv08.cryptonite.cloud.delete.DeleteActivity;
+import lightningv08.cryptonite.cloud.download.DownloadActivity;
 import lightningv08.cryptonite.databinding.ActivityCloudBinding;
 
 public class CloudActivity extends AppCompatActivity {

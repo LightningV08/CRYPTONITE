@@ -1,4 +1,4 @@
-package lightningv08.cryptonite;
+package lightningv08.cryptonite.hash;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -28,6 +28,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
 
+import lightningv08.cryptonite.R;
 import lightningv08.cryptonite.databinding.ActivityHashFileBinding;
 
 public class HashFileActivity extends AppCompatActivity {
