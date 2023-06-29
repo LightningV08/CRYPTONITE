@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("stop", true);
                 startActivity(intent);
                 finish();
-                firstRun = false;
             }
         }
 
