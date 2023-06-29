@@ -110,4 +110,5 @@
     <string name="your_password_in_rockyou_toast">Votre mot de passe est dans la liste des mots de passe rockyou, il n\'est donc pas sécurisé. Appuyez à nouveau pour continuer avec ce mot de passe.</string>
     <string name="settings">Paramètres</string>
     <string name="cryptonite_settings">Paramètres CRYPTONITE</string>
+    <string name="in_development">En développement...</string>
 </resources>

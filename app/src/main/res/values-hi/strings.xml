@@ -110,4 +110,5 @@
     <string name="your_password_in_rockyou_toast">पासवर्ड रॉकयू सूची में है इसलिए यह असुरक्षित है। इस पासवर्ड को जारी रखने के लिए फिर से दबाएँ।</string>
     <string name="settings">सेटिंग्स</string>
     <string name="cryptonite_settings">क्रिप्टोनाइट सेटिंग्स</string>
+    <string name="in_development">विकास में...</string>
 </resources>

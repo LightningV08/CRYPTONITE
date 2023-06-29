@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -83,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
         binding.cloudButton.setOnClickListener(v -> startActivity(new Intent(this, CloudActivity.class)));
         binding.passwordSafetyCheckButton.setOnClickListener(v -> startActivity(new Intent(this, PasswordSafetyCheckActivity.class)));
         binding.settingsButton.setOnClickListener(v -> startActivity(new Intent(this, SettingsActivity.class)));
+        binding.steganographyButton.setOnClickListener(v -> Toast.makeText(this, R.string.in_development, Toast.LENGTH_SHORT).show());
+        binding.digitalSignatureButton.setOnClickListener(v -> Toast.makeText(this, R.string.in_development, Toast.LENGTH_SHORT).show());
     }
 
     @Override

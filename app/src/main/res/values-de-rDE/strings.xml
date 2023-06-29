@@ -110,4 +110,5 @@
     <string name="your_password_is_too_short">Dein Passwort ist zu kurz.</string>
     <string name="settings">Einstellungen</string>
     <string name="cryptonite_settings">CRYPTONITE-Einstellungen</string>
+    <string name="in_development">In Entwicklung...</string>
 </resources>

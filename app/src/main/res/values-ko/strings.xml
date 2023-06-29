@@ -109,4 +109,5 @@
     <string name="your_password_in_rockyou_toast">귀하의 비밀번호는 rockyou 비밀번호 목록에 있으므로 안전하지 않습니다. 이 암호로 계속하려면 다시 누르십시오.</string>
     <string name="settings">설정</string>
     <string name="cryptonite_settings">CRYPTONITE 설정</string>
+    <string name="in_development">개발 중...</string>
 </resources>

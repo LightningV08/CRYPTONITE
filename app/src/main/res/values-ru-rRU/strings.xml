@@ -110,4 +110,5 @@
     <string name="your_password_in_rockyou_toast">Ваш пароль есть в списке rockyou и небезопасен. Нажмите еще раз для продолжения с ним.</string>
     <string name="settings">Настройки</string>
     <string name="cryptonite_settings">Настройки CRYPTONITE</string>
+    <string name="in_development">В разработке...</string>
 </resources>
