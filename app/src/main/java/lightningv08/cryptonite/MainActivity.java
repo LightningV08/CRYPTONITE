@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +23,7 @@ import lightningv08.cryptonite.encryption.ChooseCryptTypeActivity;
 import lightningv08.cryptonite.hash.ChooseHashInputFragment;
 import lightningv08.cryptonite.passwordcheck.PasswordSafetyCheckActivity;
 import lightningv08.cryptonite.settings.SettingsActivity;
+import lightningv08.cryptonite.utils.PermissionUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,6 +53,10 @@ public class MainActivity extends AppCompatActivity {
 
         prefs = getSharedPreferences("com.lightningv08.cryptonite", MODE_PRIVATE);
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            Log.d("RRR", String.valueOf(Environment.isExternalStorageManager()));
+        }
+
         if (firstRun) {
             String language = prefs.getString("language", "en");
             updateResources(this, language);
@@ -61,14 +69,22 @@ public class MainActivity extends AppCompatActivity {
         }
 
         binding.encryptButton.setOnClickListener(v -> {
-            Intent intent = new Intent(this, ChooseCryptTypeActivity.class);
-            intent.putExtra("crypt_operation", "encrypt");
-            startActivity(intent);
+            if (!PermissionUtils.hasPermissions(this)) {
+                PermissionUtils.requestPermissions(this, 101);
+            } else {
+                Intent intent = new Intent(this, ChooseCryptTypeActivity.class);
+                intent.putExtra("crypt_operation", "encrypt");
+                startActivity(intent);
+            }
         });
         binding.decryptButton.setOnClickListener(v -> {
-            Intent intent = new Intent(this, ChooseCryptTypeActivity.class);
-            intent.putExtra("crypt_operation", "decrypt");
-            startActivity(intent);
+            if (!PermissionUtils.hasPermissions(this)) {
+                PermissionUtils.requestPermissions(this, 101);
+            } else {
+                Intent intent = new Intent(this, ChooseCryptTypeActivity.class);
+                intent.putExtra("crypt_operation", "decrypt");
+                startActivity(intent);
+            }
         });
         binding.hashButton.setOnClickListener(v -> {
             if (!hashButtonOpened) {
@@ -90,11 +106,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (prefs.getBoolean("firstrun", true) || !prefs.getBoolean("granted", false)) {
-            Intent intent = new Intent(this, PermissionActivity.class);
-            startActivity(intent);
-            prefs.edit().putBoolean("firstrun", false).apply();
-        }
         if (prefs.getBoolean("language_changed", false)) {
             recreate();
             prefs.edit().putBoolean("language_changed", false).apply();
