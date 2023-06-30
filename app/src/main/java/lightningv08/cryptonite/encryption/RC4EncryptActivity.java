@@ -129,6 +129,7 @@ public class RC4EncryptActivity extends AppCompatActivity {
                 Toast.makeText(this, checkPasswordResult, Toast.LENGTH_SHORT).show();
             }
         });
+        binding.backButton.setOnClickListener(v -> onBackPressed());
     }
 
     @Override

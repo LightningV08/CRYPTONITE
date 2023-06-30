@@ -17,6 +17,7 @@ public class ChooseCryptTypeActivity extends AppCompatActivity {
         binding = ChooseCryptTypeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         String crypt_operation = getIntent().getStringExtra("crypt_operation");
+        binding.backButton.setOnClickListener(v -> onBackPressed());
         binding.aesButton.setOnClickListener(v -> {
             switch (crypt_operation) {
                 case "encrypt":

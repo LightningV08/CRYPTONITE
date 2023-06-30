@@ -115,5 +115,6 @@ public class HashTextActivity extends AppCompatActivity {
             binding.result.setText(hash);
             binding.copyButton.setVisibility(View.VISIBLE);
         });
+        binding.backButton.setOnClickListener(v -> onBackPressed());
     }
 }

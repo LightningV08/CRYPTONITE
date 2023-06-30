@@ -113,6 +113,7 @@ public class GOSTDecryptActivity extends AppCompatActivity {
                 }
             });
         });
+        binding.backButton.setOnClickListener(v -> onBackPressed());
     }
 
     @Override

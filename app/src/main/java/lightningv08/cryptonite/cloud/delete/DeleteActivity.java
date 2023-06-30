@@ -50,5 +50,7 @@ public class DeleteActivity extends AppCompatActivity {
                 });
             }
         });
+
+        binding.backButton.setOnClickListener(v -> onBackPressed());
     }
 }

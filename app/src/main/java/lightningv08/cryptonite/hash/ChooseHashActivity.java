@@ -18,6 +18,7 @@ public class ChooseHashActivity extends AppCompatActivity {
         binding = ChooseHashTypeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         String hashType = getIntent().getStringExtra("hash_type");
+        binding.backButton.setOnClickListener(v -> onBackPressed());
         binding.sha512Button.setOnClickListener(v -> {
             Intent intent;
             if (Objects.equals(hashType, "text")) intent = new Intent(this, HashTextActivity.class);

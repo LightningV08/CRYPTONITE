@@ -47,5 +47,6 @@ public class ChangeEmailActivity extends AppCompatActivity {
                 }
             });
         });
+        binding.backButton.setOnClickListener(v -> onBackPressed());
     }
 }

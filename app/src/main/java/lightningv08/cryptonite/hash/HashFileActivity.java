@@ -60,6 +60,7 @@ public class HashFileActivity extends AppCompatActivity {
             } else Toast.makeText(this, R.string.calculate_hash_first, Toast.LENGTH_SHORT).show();
         });
         binding.hashButton.setOnClickListener(v -> doHashing());
+        binding.backButton.setOnClickListener(v -> onBackPressed());
     }
 
     @NonNull

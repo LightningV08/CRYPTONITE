@@ -113,6 +113,7 @@ public class AESDecryptActivity extends AppCompatActivity {
                 }
             });
         });
+        binding.backButton.setOnClickListener(v -> onBackPressed());
     }
 
     @Override

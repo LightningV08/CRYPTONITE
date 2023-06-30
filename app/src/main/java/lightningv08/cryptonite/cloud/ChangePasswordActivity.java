@@ -50,5 +50,6 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 }
             });
         });
+        binding.backButton.setOnClickListener(v -> onBackPressed());
     }
 }

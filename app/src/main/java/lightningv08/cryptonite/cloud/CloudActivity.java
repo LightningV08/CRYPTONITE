@@ -74,6 +74,8 @@ public class CloudActivity extends AppCompatActivity {
             }
             startActivity(new Intent(this, DeleteActivity.class));
         });
+
+        binding.backButton.setOnClickListener(v -> onBackPressed());
     }
 
     @Override

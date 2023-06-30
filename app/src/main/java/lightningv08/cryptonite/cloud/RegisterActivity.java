@@ -96,6 +96,7 @@ public class RegisterActivity extends AppCompatActivity {
                 binding.progressBar.setVisibility(View.GONE);
             }
         });
+        binding.backButton.setOnClickListener(v -> onBackPressed());
     }
 
     private void sendVerificationEmail() {

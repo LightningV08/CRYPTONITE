@@ -113,6 +113,7 @@ public class TwofishDecryptActivity extends AppCompatActivity {
                 }
             });
         });
+        binding.backButton.setOnClickListener(v -> onBackPressed());
     }
 
     @Override

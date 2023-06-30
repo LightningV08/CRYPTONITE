@@ -28,5 +28,6 @@ public class PasswordSafetyCheckActivity extends AppCompatActivity {
             }
             binding.progressBar.setVisibility(View.GONE);
         });
+        binding.backButton.setOnClickListener(v -> onBackPressed());
     }
 }

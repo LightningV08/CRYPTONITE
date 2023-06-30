@@ -32,5 +32,7 @@ public class SettingsActivity extends AppCompatActivity {
                 languageListOpened = false;
             }
         });
+
+        binding.backButton.setOnClickListener(v -> onBackPressed());
     }
 }

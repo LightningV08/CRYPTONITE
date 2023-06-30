@@ -113,6 +113,7 @@ public class DESDecryptActivity extends AppCompatActivity {
                 }
             });
         });
+        binding.backButton.setOnClickListener(v -> onBackPressed());
     }
 
     @Override

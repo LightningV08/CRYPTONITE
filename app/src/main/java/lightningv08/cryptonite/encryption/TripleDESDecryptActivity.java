@@ -113,6 +113,7 @@ public class TripleDESDecryptActivity extends AppCompatActivity {
                 }
             });
         });
+        binding.backButton.setOnClickListener(v -> onBackPressed());
     }
 
     @Override

@@ -6,6 +6,17 @@
     android:background="@color/background"
     tools:context=".hash.HashTextActivity">
 
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:adjustViewBounds="true"
+        android:background="@color/background"
+        android:scaleType="fitCenter"
+        android:src="@drawable/back_button" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="55dp"
             android:fontFamily="sans-serif-medium"
             android:text="@string/type_text_to_hash"
             android:textColor="@color/black"

@@ -50,5 +50,7 @@ public class DownloadActivity extends AppCompatActivity {
                 });
             }
         });
+
+        binding.backButton.setOnClickListener(v -> onBackPressed());
     }
 }

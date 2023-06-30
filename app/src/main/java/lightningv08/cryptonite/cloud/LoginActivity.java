@@ -69,6 +69,8 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     });
         });
+
+        binding.backButton.setOnClickListener(v -> onBackPressed());
     }
 
     private void checkIfEmailVerified() {

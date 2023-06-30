@@ -129,6 +129,7 @@ public class DESEncryptActivity extends AppCompatActivity {
                 Toast.makeText(this, checkPasswordResult, Toast.LENGTH_SHORT).show();
             }
         });
+        binding.backButton.setOnClickListener(v -> onBackPressed());
     }
 
     @Override
