@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name" translatable="false">CRYPTONITE</string>
     <string name="encrypt">Encrypt</string>
     <string name="decrypt">Decrypt</string>
@@ -11,7 +11,7 @@
     <string name="blowfish" translatable="false">Blowfish</string>
     <string name="twofish" translatable="false">Twofish</string>
     <string name="des3" translatable="false">3DES</string>
-    <string name="GOST_28147_89">GOST-28147-89</string>
+    <string name="GOST_28147_89" tools:ignore="TypographyDashes">GOST-28147-89</string>
     <string name="rc4" translatable="false">RC4</string>
     <string name="select_file_to_encrypt">Select file to encrypt</string>
     <string name="select_file">Select file</string>

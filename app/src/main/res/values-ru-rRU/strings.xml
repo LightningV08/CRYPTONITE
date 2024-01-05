@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="encrypt">Шифровать</string>
     <string name="decrypt">Дешифровать</string>
     <string name="get_hash">Хеширование</string>
     <string name="steganography">Стеганография</string>
     <string name="digital_signature">Цифровые Подписи</string>
     <string name="select_file">Выбрать файл</string>
-    <string name="GOST_28147_89">ГОСТ-28147-89</string>
+    <string name="GOST_28147_89" tools:ignore="TypographyDashes">ГОСТ-28147-89</string>
     <string name="select_file_to_encrypt">Выберите файл для шифрования</string>
     <string name="choose_aes_key_size">Выберите размер ключа AES</string>
     <string name="choose_key_generation_mode">Выберите вариант генерации ключа</string>

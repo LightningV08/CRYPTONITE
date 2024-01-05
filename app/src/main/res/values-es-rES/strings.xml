@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="encrypt">Сifrar</string>
     <string name="decrypt">Descifrar</string>
     <string name="get_hash">Algoritmos hash</string>
     <string name="steganography">Esteganografía</string>
     <string name="digital_signature">Firma digital</string>
-    <string name="GOST_28147_89">GOST-28147-89</string>
+    <string name="GOST_28147_89" tools:ignore="TypographyDashes">GOST-28147-89</string>
     <string name="select_file_to_encrypt">Seleccione el archivo para cifrar</string>
     <string name="select_file">Seleccione Archivo</string>
     <string name="choose_aes_key_size">Elija el tamaño de la clave AES</string>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="encrypt">加密</string>
     <string name="decrypt">解密</string>
     <string name="get_hash">哈希算法</string>
     <string name="steganography">隐写术</string>
     <string name="digital_signature">数字签名</string>
-    <string name="GOST_28147_89">GOST-28147-89</string>
+    <string name="GOST_28147_89" tools:ignore="TypographyDashes">GOST-28147-89</string>
     <string name="select_file_to_encrypt">选择要加密的文件</string>
     <string name="select_file">选择文件</string>
     <string name="choose_aes_key_size">选择 AES 密钥大小</string>
