@@ -21,7 +21,7 @@ import java.util.UUID;
 public class FileUtils {
     public static String FALLBACK_COPY_FOLDER = "upload_part";
 
-    private static String TAG = "FileUtils";
+    private static final String TAG = "FileUtils";
 
     private static Uri contentUri = null;
 
@@ -54,7 +54,7 @@ public class FileUtils {
                     fullPath = copyFileToInternalStorage(uri, FALLBACK_COPY_FOLDER);
                 }
 
-                if (fullPath != "") {
+                if (!fullPath.isEmpty()) {
                     return fullPath;
                 } else {
                     return null;
@@ -96,7 +96,7 @@ public class FileUtils {
 
                         for (String contentUriPrefix: contentUriPrefixesToTry) {
                             try {
-                                final Uri contentUri = ContentUris.withAppendedId(Uri.parse(contentUriPrefix), Long.valueOf(id));
+                                final Uri contentUri = ContentUris.withAppendedId(Uri.parse(contentUriPrefix), Long.parseLong(id));
 
                                 return getDataColumn(context, contentUri, null, null);
                             } catch (NumberFormatException e) {
@@ -113,7 +113,7 @@ public class FileUtils {
                     }
                     try {
                         contentUri = ContentUris.withAppendedId(
-                                Uri.parse("content://downloads/public_downloads"), Long.valueOf(id));
+                                Uri.parse("content://downloads/public_downloads"), Long.parseLong(id));
                     } catch (NumberFormatException e) {
                         e.printStackTrace();
                     }
@@ -271,16 +271,14 @@ public class FileUtils {
          *     * and display it.
          * */
         int nameIndex = returnCursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
-        int sizeIndex = returnCursor.getColumnIndex(OpenableColumns.SIZE);
         returnCursor.moveToFirst();
         String name = (returnCursor.getString(nameIndex));
-        String size = (Long.toString(returnCursor.getLong(sizeIndex)));
         File file = new File(context.getCacheDir(), name);
         try {
             InputStream inputStream = context.getContentResolver().openInputStream(uri);
             FileOutputStream outputStream = new FileOutputStream(file);
             int read = 0;
-            int maxBufferSize = 1 * 1024 * 1024;
+            int maxBufferSize = 1024 * 1024;
             int bytesAvailable = inputStream.available();
 
             //int bufferSize = 1024;
@@ -328,7 +326,7 @@ public class FileUtils {
         String size = (Long.toString(returnCursor.getLong(sizeIndex)));
 
         File output;
-        if (!newDirName.equals("")) {
+        if (!newDirName.isEmpty()) {
             String random_collision_avoidance = UUID.randomUUID().toString();
 
             File dir = new File(context.getFilesDir() + File.separator + newDirName + File.separator + random_collision_avoidance);
