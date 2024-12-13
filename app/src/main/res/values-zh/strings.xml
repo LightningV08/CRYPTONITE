@@ -110,5 +110,5 @@
     <string name="your_password_in_rockyou_toast">您的密码在摇滚密码列表中，因此不安全。再次按下以继续使用此密码。</string>
     <string name="settings">设置</string>
     <string name="cryptonite_settings">隐夜设置</string>
-    <string name="in_development">开发中...</string>
+    <string name="in_development">开发中…</string>
 </resources>

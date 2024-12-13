@@ -43,7 +43,7 @@
     <string name="ask_generate_new_keys">Сгенерировать новые ключи?</string>
     <string name="keys_already_generated">Ключи уже были сгенерированы</string>
     <string name="choose_privkey">Выберите файл .privkey, не .pubkey</string>
-    <string name="choose_pubkey">Выберите файл .pubkey, не ,privkey</string>
+    <string name="choose_pubkey">Выберите файл .pubkey, не .privkey</string>
     <string name="hashing_error">Ошибка хеширования</string>
     <string name="copy">Скопировать</string>
     <string name="hash_copied">Хеш-сумма скопирована</string>
@@ -59,7 +59,7 @@
     <string name="cryptonite_cloud_features">Облачные функции CRYPTONITE</string>
     <string name="login_or_register">Войти или зарегистрироваться</string>
     <string name="log_out">Выйти из аккаунта</string>
-    <string name="enter_email">Введите e-mail</string>
+    <string name="enter_email">Введите email</string>
     <string name="authentication_failed">Ошибка аутентификации</string>
     <string name="account_created">Аккаунт успешно создан</string>
     <string name="already_logged_in">Вы уже авторизованы</string>
@@ -102,7 +102,7 @@
     <string name="your_password_is_secure">Ваш пароль надёжен.</string>
     <string name="password_safety_check">Проверка стойкости пароля</string>
     <string name="your_password_is_too_short">Пароль слишком короткий.</string>
-    <string name="your_password_does_not_contain_numeric_characters">Парольне сожержит цифры</string>
+    <string name="your_password_does_not_contain_numeric_characters">Пароль не сожержит цифры</string>
     <string name="your_password_does_not_contain_lowercase_characters">Пароль не содержит строчные буквы.</string>
     <string name="your_password_does_not_contain_uppercase_characters">Пароль не содержит заглавные буквы.</string>
     <string name="your_password_does_not_contain_special_symbols">Пароль не содержит специальные символы (_!@#$%).</string>
@@ -110,5 +110,5 @@
     <string name="your_password_in_rockyou_toast">Ваш пароль есть в списке rockyou и небезопасен. Нажмите еще раз для продолжения с ним.</string>
     <string name="settings">Настройки</string>
     <string name="cryptonite_settings">Настройки CRYPTONITE</string>
-    <string name="in_development">В разработке...</string>
+    <string name="in_development">В разработке…</string>
 </resources>

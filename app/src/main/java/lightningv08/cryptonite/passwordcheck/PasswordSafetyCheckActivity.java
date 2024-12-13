@@ -21,7 +21,7 @@ public class PasswordSafetyCheckActivity extends AppCompatActivity {
             binding.progressBar.setVisibility(View.VISIBLE);
             binding.result.setText("");
             String checkResult = PasswordSafetyCheck.checkPassword(String.valueOf(binding.password.getText()), this);
-            if (checkResult.equals("")) {
+            if (checkResult.isEmpty()) {
                 binding.result.setText(R.string.your_password_is_secure);
             } else {
                 binding.result.setText(checkResult);

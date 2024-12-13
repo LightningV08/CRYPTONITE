@@ -1,5 +1,6 @@
 package lightningv08.cryptonite.encryption;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
 
@@ -92,6 +93,7 @@ public abstract class FileEncrypter {
         outputStream.close();
     }
 
+    @SuppressLint("NewApi")
     public void decryptFileIv(@NonNull Context context, Uri uri) throws IOException,
             InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException,
             NoSuchAlgorithmException, BadPaddingException, InvalidKeyException,
